@@ -88,7 +88,8 @@ section{padding:60px 16px}
 .mood-circle{width:70px;height:70px;border-radius:50%;margin:12px auto;transition:all .5s;background:#E0D3C2}
 .outfit-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;margin:8px 0}
 .outfit-grid span{cursor:pointer;font-size:1.5rem;padding:3px;border-radius:8px;-webkit-tap-highlight-color:transparent}
-.seek-area{position:relative;width:100%;height:180px;background:#f5f0e8;border-radius:14px;overflow:hidden;margin:12px 0;cursor:crosshair;touch-action:none}
+.seek-area{position:relative;width:100%;height:180px;background:#f5f0e8;border-radius:14px;overflow:hidden;margin:12px 0;cursor:crosshair;touch-action:none;-webkit-user-select:none;user-select:none}
+.moving-bear{position:absolute;font-size:2rem;user-select:none;-webkit-tap-highlight-color:transparent;transition:left 0.4s ease, top 0.4s ease;z-index:2}
 .moving-bear{position:absolute;font-size:2rem;user-select:none;-webkit-tap-highlight-color:transparent}
 .music-playlist{max-height:160px;overflow-y:auto;margin:8px 0}
 .music-item{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:10px;cursor:pointer;font-size:.85rem;margin-bottom:3px;background:#fefcf8}
@@ -579,12 +580,52 @@ function playTrack(i){if(!playlist[i])return;var a=$('forest-audio');a.src=playl
 function delTrack(i){if(confirm('删除？')){playlist.splice(i,1);savePlaylist();renderPlaylist();$('np-cn').textContent='未选择曲目';$('np-en').textContent='No track selected';$('forest-audio').src=''}}
 renderPlaylist();
 
-// 捕捉小快闪
+// 捕捉小快闪（滑动/划过方式）
 var seekScore=0;
-function moveBear(){var area=$('seekArea');if(!area)return;var bear=$('targetBear');var x=Math.random()*(area.offsetWidth-40);var y=Math.random()*(area.offsetHeight-40);bear.style.left=x+'px';bear.style.top=y+'px'}
-$('targetBear').addEventListener('click',function(e){e.preventDefault();seekScore++;$('seekScore').textContent=seekScore;moveBear()});
-$('targetBear').addEventListener('touchstart',function(e){e.preventDefault();seekScore++;$('seekScore').textContent=seekScore;moveBear()},{passive:false});
-moveBear();setInterval(moveBear,1500);
+var seekCaught=false;
+
+function moveBear(){
+  var area=$('seekArea');if(!area)return;
+  var bear=$('targetBear');
+  seekCaught=false;
+  var x=Math.random()*(area.offsetWidth-40);
+  var y=Math.random()*(area.offsetHeight-40);
+  bear.style.left=x+'px';
+  bear.style.top=y+'px';
+}
+
+function checkSeekHit(px,py){
+  if(seekCaught)return;
+  var bear=$('targetBear');
+  var rect=bear.getBoundingClientRect();
+  if(px>=rect.left && px<=rect.right && py>=rect.top && py<=rect.bottom){
+    seekCaught=true;
+    seekScore++;
+    $('seekScore').textContent=seekScore;
+    bear.style.transform='scale(1.5)';
+    setTimeout(function(){bear.style.transform='scale(1)';moveBear()},300);
+  }
+}
+
+// 鼠标滑动（电脑端）
+$('seekArea').addEventListener('mousemove',function(e){
+  checkSeekHit(e.clientX,e.clientY);
+});
+
+// 触摸滑动（手机端）
+$('seekArea').addEventListener('touchmove',function(e){
+  if(e.touches&&e.touches[0]){
+    checkSeekHit(e.touches[0].clientX,e.touches[0].clientY);
+  }
+},{passive:true});
+
+// 点击/触摸也支持（作为 fallback）
+$('targetBear').addEventListener('click',function(e){
+  if(!seekCaught){seekCaught=true;seekScore++;$('seekScore').textContent=seekScore;this.style.transform='scale(1.5)';var self=this;setTimeout(function(){self.style.transform='scale(1)';moveBear()},300)}
+});
+
+moveBear();
+setInterval(moveBear,1800);
 
 // 记忆翻牌
 var memC=[],memFl=[],memMa=[],memMv=0;
