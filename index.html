@@ -18,6 +18,7 @@ body{font-family:'Microsoft YaHei','微软雅黑','PingFang SC',sans-serif;backg
 .nav-links a .nen{font-family:'Pangolin',cursive;font-size:.72rem;opacity:.65}
 .nav-links a:hover{color:var(--brown);background:rgba(255,179,0,.1)}
 .nav-links a.active{background:var(--honey);color:#fff}
+.hamburger{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--brown);padding:8px}
 
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 40px 60px;background:linear-gradient(180deg,#FFFDF5 0%,#FFF8E1 50%,#FFECB3 100%);position:relative;overflow:hidden}
 .hero-title{font-family:'Grandstander',cursive;font-size:5rem;font-weight:900;color:var(--brown);text-shadow:4px 4px 0 rgba(255,179,0,.25);margin-bottom:18px}
@@ -44,6 +45,7 @@ section{padding:80px 40px}
 .acard:hover{transform:translateY(-8px);box-shadow:var(--shh)}
 .acard .cimg{width:100%;height:220px;object-fit:cover;cursor:pointer}
 .acard video{width:100%;height:220px;object-fit:cover;border-radius:var(--r) var(--r) 0 0}
+.acard .emoji-cover{width:100%;height:220px;display:flex;align-items:center;justify-content:center;font-size:6rem;background:linear-gradient(135deg,#FFF8E1,#FFECB3);cursor:pointer}
 .acard .cbd{padding:20px 22px 10px}
 .acard h3{font-size:1.1rem;font-weight:700;margin-bottom:4px}
 .acard .ten{font-family:'Pangolin',cursive;font-size:.95rem;color:var(--soft);margin-bottom:10px}
@@ -172,31 +174,79 @@ section{padding:80px 40px}
 .atxt .stars{font-size:2.2rem;margin-top:25px;letter-spacing:10px}
 
 footer{background:var(--brown);color:rgba(255,255,255,.85);text-align:center;padding:50px 20px}
-.ftl{font-family:'Microsoft YaHei','微软雅黑',sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:12px}
+.ftl{font-size:1.5rem;font-weight:700;margin-bottom:12px}
 .ftcn{font-size:1rem;margin-bottom:5px;font-weight:600;color:var(--honey)}
 .ften{font-family:'Pangolin',cursive;font-size:1rem;opacity:.7;margin-bottom:22px}
 .ftcp{font-size:.82rem;opacity:.5}
 
 .reveal{opacity:0;transform:translateY(40px);transition:all .8s}.reveal.visible{opacity:1;transform:translateY(0)}
-@media(max-width:768px){.navbar{padding:0 12px}.logo{font-size:1.4rem}.nav-links a{padding:8px 8px;font-size:.72rem}.hero-title{font-size:3rem}section{padding:55px 16px}.abox{flex-direction:column;gap:28px}.aav{width:180px;height:180px}.ggrid{grid-template-columns:1fr}.bday{padding:25px}}
+
+/* ===== 手机端适配 ===== */
+@media(max-width:768px){
+.navbar{padding:0 16px;height:60px}
+.logo{font-size:1.3rem}
+.hamburger{display:block}
+.nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:rgba(255,253,245,.98);backdrop-filter:blur(20px);flex-direction:column;padding:16px;gap:4px;box-shadow:0 8px 30px rgba(93,78,55,.1)}
+.nav-links.open{display:flex}
+.nav-links a{padding:14px 20px;border-radius:16px;font-size:.95rem;flex-direction:row;gap:8px}
+.nav-links a .nen{font-size:.78rem}
+.hero{padding:90px 20px 50px}
+.hero-title{font-size:2.8rem}
+.hero-slogan{font-size:1.05rem}
+.hero-slogan-en{font-size:.9rem;margin-bottom:25px}
+.wbox{padding:20px 22px}
+.wcn{font-size:1rem}
+.hero-cta{padding:14px 30px;font-size:1rem}
+section{padding:50px 16px}
+.shd h2{font-size:1.8rem}
+.shd .en{font-size:.95rem}
+.agrid{grid-template-columns:1fr;gap:20px}
+.ggrid{grid-template-columns:1fr;gap:18px}
+.gc{padding:24px 20px}
+.gc .gi{font-size:2.5rem}
+.gc .gt{font-size:1.1rem}
+.bday{padding:25px 18px;margin:30px auto 0}
+.sbs{max-width:100%}
+.bacts{gap:8px}
+.bbtn{padding:10px 16px;font-size:.82rem}
+.abox{flex-direction:column;gap:28px}
+.aav{width:160px;height:160px}
+.atxt h2{font-size:1.8rem}
+.atxt p{font-size:.92rem}
+.mbox{padding:24px 20px;width:95%;border-radius:20px}
+.compose{padding:20px}
+.seek-area{height:160px}
+.outfit-grid span{font-size:1.4rem}
+.mg{grid-template-columns:repeat(4,1fr);gap:4px}
+.mc{font-size:1.1rem}
+.music-playlist{max-height:140px}
+}
+
+@media(max-width:380px){
+.hero-title{font-size:2.2rem}
+.ggrid{grid-template-columns:1fr}
+.gc{padding:20px 16px}
+.bbtn{padding:8px 12px;font-size:.78rem}
+}
 </style>
 </head>
 <body>
 
 <nav class="navbar">
 <a href="#home" class="logo"><span>🐻</span>Bearland</a>
+<button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')"><i class="fas fa-bars"></i></button>
 <ul class="nav-links">
-<li><a href="#home" class="active"><span>主页</span><span class="nen">Home</span></a></li>
-<li><a href="#theater"><span>故事剧院</span><span class="nen">Theater</span></a></li>
-<li><a href="#games"><span>互动岛</span><span class="nen">Games</span></a></li>
-<li><a href="#community"><span>社区</span><span class="nen">Community</span></a></li>
-<li><a href="#about"><span>关于</span><span class="nen">About</span></a></li>
+<li><a href="#home" class="active" onclick="closeNav()"><span>主页</span><span class="nen">Home</span></a></li>
+<li><a href="#theater" onclick="closeNav()"><span>故事剧院</span><span class="nen">Theater</span></a></li>
+<li><a href="#games" onclick="closeNav()"><span>互动岛</span><span class="nen">Games</span></a></li>
+<li><a href="#community" onclick="closeNav()"><span>社区</span><span class="nen">Community</span></a></li>
+<li><a href="#about" onclick="closeNav()"><span>关于</span><span class="nen">About</span></a></li>
 </ul>
 </nav>
 
 <section id="home" class="hero">
 <h1 class="hero-title">Bearland</h1>
-<div class="hero-slogan">每一只小熊，都在等一个懂🧸的人</div>
+<div class="hero-slogan">每一只小熊，都在等一个懂它的人</div>
 <div class="hero-slogan-en">Every bear is waiting for someone who understands.</div>
 <div class="wbadge" onclick="doWhisper()">🌟 倾听小熊低语</div>
 <div class="wbox" onclick="doWhisper()">
@@ -207,7 +257,7 @@ footer{background:var(--brown);color:rgba(255,255,255,.85);text-align:center;pad
 </section>
 
 <section id="theater" class="reveal">
-<div class="shd"><h2>🎦 小熊故事剧院</h2><div class="en">Teddy Bear Theater</div><div class="line"></div></div>
+<div class="shd"><h2>🎭 小熊故事剧院</h2><div class="en">Teddy Bear Theater</div><div class="line"></div></div>
 <div class="agrid" id="albumGrid"></div>
 </section>
 
@@ -229,7 +279,7 @@ footer{background:var(--brown);color:rgba(255,255,255,.85);text-align:center;pad
 <div class="fg"><label>描述</label><textarea id="edD"></textarea></div>
 <button class="btnp" onclick="updateA()">💾 保存修改</button></div></div>
 
-<div class="lb" id="lb" onclick="this.classList.remove('show')"><img id="lbI" src=""><video id="lbV" controls style="display:none"></video></div>
+<div class="lb" id="lb"><img id="lbI" src=""><video id="lbV" controls style="display:none"></video></div>
 
 <section id="games" class="reveal">
 <div class="shd"><h2>🎡 趣味互动岛</h2><div class="en">Fun Interactive Island</div><div class="line"></div></div>
@@ -262,7 +312,7 @@ footer{background:var(--brown);color:rgba(255,255,255,.85);text-align:center;pad
 
 <div class="gc"><span class="gi" id="gift-icon" style="cursor:pointer;font-size:3.5rem" onclick="doGift()">🎁</span><div class="gt">惊喜盒子</div><div class="gte">Gift Box</div><p>点击盒子看惊喜！</p><div class="gr" id="gift-r">摇一摇，开一开～</div></div>
 
-<div class="gc"><span class="gi">🏃</span><div class="gt">捕捉小快闪</div><div class="gte">Catch the Bear!</div><div class="seek-area" id="seekArea"><span id="targetBear" class="moving-bear" onmouseover="catchBear()">🐻</span></div><div class="gr">抓到次数: <span id="seekScore">0</span></div></div>
+<div class="gc"><span class="gi">🏃</span><div class="gt">捕捉小快闪</div><div class="gte">Catch the Bear!</div><div class="seek-area" id="seekArea"><span id="targetBear" class="moving-bear" onclick="catchBear()">🐻</span></div><div class="gr">抓到次数: <span id="seekScore">0</span></div></div>
 
 <div class="gc"><span class="gi">🃏</span><div class="gt">记忆翻牌</div><div class="gte">Memory Match</div><div class="mg" id="mem-g"></div><div class="gr" id="mem-r">翻牌次数: 0</div><button class="gbtn" onclick="resetMem()">🔄 重新开始</button></div>
 
@@ -337,6 +387,7 @@ const $=id=>document.getElementById(id);
 function pick(a){return a[Math.floor(Math.random()*a.length)]}
 function openM(id){$(id).classList.add('show')}
 function closeM(id){$(id).classList.remove('show')}
+function closeNav(){document.querySelector('.nav-links').classList.remove('open')}
 document.querySelectorAll('.reveal').forEach(el=>{new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1}).observe(el)});
 window.addEventListener('scroll',()=>{let c='home';document.querySelectorAll('section[id]').forEach(s=>{if(scrollY>=s.offsetTop-100)c=s.id});document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c))});
 
@@ -432,157 +483,60 @@ let wI=0;
 function doWhisper(){wI=(wI+1)%LIB.whispers.length;const w=LIB.whispers[wI];$('wCN').textContent=w[0];$('wEN').textContent=w[1]}
 
 // ===== 故事剧院 =====
-let album = [];
-let uploadedFileData = null;
-let uploadedFileType = null;
+let album=[];let uploadedFileData=null;let uploadedFileType=null;
+try{const saved=localStorage.getItem('bl_album');if(saved)album=JSON.parse(saved)}catch(e){album=[]}
+if(!album.length){
+album=[
+{t:"🌿 吉福特熊",te:"Gift Bear",d:"在 Bearland 的每一个清晨，吉福特都会在长椅上留下一束带有露水的野花。",media:"emoji",emoji:"🧸",type:"emoji"},
+{t:"🧳 帕丁顿熊",te:"Bear Paddington",d:"他总是极具礼貌。只要一瓶橘子酱，就能告诉你什么是优雅的冒险。",media:"emoji",emoji:"🐻",type:"emoji"},
+{t:"🍯 蜜糖小熊",te:"Honey Bear",d:"每天傍晚，蜜糖小熊会坐在蜂蜜罐旁，给萤火虫讲星星的故事。",media:"emoji",emoji:"🍯",type:"emoji"}
+];saveAlbum()}
 
-try {
-    const saved = localStorage.getItem('bl_album');
-    if (saved) album = JSON.parse(saved);
-} catch(e) { album = []; }
+function saveAlbum(){try{localStorage.setItem('bl_album',JSON.stringify(album))}catch(e){if(e.name==='QuotaExceededError')alert('存储空间已满，请删除一些内容后再试')}}
 
-// 默认内容（仅当没有保存数据时）
-if (!album.length) {
-    album = [
-        {t:"🌿 吉福特熊",te:"Gift Bear",d:"在 Bearland 的每一个清晨，吉福特都会在长椅上留下一束带有露水的野花。",media:"https://images.unsplash.com/photo-1559715541-5daf8a0296d0?auto=format&fit=crop&w=600",type:"image"},
-        {t:"🧳 帕丁顿熊",te:"Bear Paddington",d:"他总是极具礼貌。只要一瓶橘子酱，就能告诉你什么是优雅的冒险。",media:"https://images.unsplash.com/photo-1582231243725-ec634d075253?auto=format&fit=crop&w=600",type:"image"},
-        {t:"🍯 蜜糖小熊",te:"Honey Bear",d:"每天傍晚，蜜糖小熊会坐在蜂蜜罐旁，给萤火虫讲星星的故事。",media:"https://images.unsplash.com/photo-1585155770913-5f0bab3c4b71?auto=format&fit=crop&w=600",type:"image"}
-    ];
-    saveAlbum();
-}
+function renderA(){
+const g=$('albumGrid');let h='';
+album.forEach((a,i)=>{
+let mediaHtml='';
+if(a.type==='video'){mediaHtml='<video class="cimg" src="'+a.media+'" controls></video>'}
+else if(a.type==='emoji'){mediaHtml='<div class="emoji-cover">'+(a.emoji||'🧸')+'</div>'}
+else{mediaHtml='<img class="cimg" src="'+a.media+'" onclick="openLB('+i+')">'}
+h+='<div class="acard">'+mediaHtml+'<div class="cbd"><h3>'+a.t+'</h3><div class="ten">'+(a.te||'')+'</div><p>'+a.d+'</p></div><div class="cact"><button class="abtn ed" onclick="editA('+i+')">✏️ 编辑</button><button class="abtn dl" onclick="delA('+i+')">🗑️ 删除</button></div></div>';
+});
+h+='<div class="addc" onclick="openM(\'upM\')"><i class="fas fa-plus-circle"></i><span>添加新内容</span></div>';
+g.innerHTML=h}
 
-function saveAlbum() {
-    try {
-        localStorage.setItem('bl_album', JSON.stringify(album));
-    } catch(e) {
-        if(e.name === 'QuotaExceededError') {
-            alert('存储空间已满！图片/视频太大，请删除一些内容或使用网络链接');
-        }
-    }
-}
+function previewFile(inp){
+uploadedFileData=null;uploadedFileType=null;
+const pb=$('previewBox');pb.innerHTML='';
+if(!inp.files||!inp.files[0])return;
+const f=inp.files[0];
+if(f.size>2*1024*1024){alert('文件超过2MB，建议压缩后上传');inp.value='';return}
+const r=new FileReader();
+r.onload=function(e){
+uploadedFileData=e.target.result;
+if(f.type.startsWith('video')){uploadedFileType='video';pb.innerHTML='<video src="'+uploadedFileData+'" controls style="max-height:150px;border-radius:10px"></video>'}
+else{uploadedFileType='image';pb.innerHTML='<img src="'+uploadedFileData+'" style="max-height:150px;border-radius:10px">'}
+};r.readAsDataURL(f)}
 
-function renderA() {
-    const g = $('albumGrid');
-    let h = '';
-    album.forEach((a, i) => {
-        const isVid = a.type === 'video';
-        const mediaHtml = isVid 
-            ? '<video class="cimg" src="' + a.media + '" controls></video>' 
-            : '<img class="cimg" src="' + a.media + '" onclick="openLB(\'' + encodeURIComponent(a.media) + '\',\'' + a.type + '\')">';
-        h += '<div class="acard">' + mediaHtml + '<div class="cbd"><h3>' + a.t + '</h3><div class="ten">' + (a.te || '') + '</div><p>' + a.d + '</p></div><div class="cact"><button class="abtn ed" onclick="editA(' + i + ')">✏️ 编辑</button><button class="abtn dl" onclick="delA(' + i + ')">🗑️ 删除</button></div></div>';
-    });
-    h += '<div class="addc" onclick="openM(\'upM\')"><i class="fas fa-plus-circle"></i><span>添加新内容</span></div>';
-    g.innerHTML = h;
-}
+function saveA(){
+const t=$('upT').value.trim(),te=$('upTE').value.trim(),d=$('upD').value.trim();
+if(!t){alert('请填写标题');return}
+if(!uploadedFileData){alert('请上传图片或视频');return}
+album.push({t,te,d,media:uploadedFileData,type:uploadedFileType||'image'});
+saveAlbum();closeM('upM');renderA();
+$('upT').value=$('upTE').value=$('upD').value='';$('previewBox').innerHTML='';$('upFile').value='';uploadedFileData=null;uploadedFileType=null}
 
-function previewFile(inp) {
-    uploadedFileData = null;
-    uploadedFileType = null;
-    const pb = $('previewBox');
-    pb.innerHTML = '';
-    
-    if (!inp.files || !inp.files[0]) return;
-    const f = inp.files[0];
-    
-    // 限制文件大小（2MB以内，base64后约2.7MB）
-    if (f.size > 2 * 1024 * 1024) {
-        alert('文件超过2MB，建议使用网络图片链接或压缩后上传');
-        inp.value = '';
-        return;
-    }
-    
-    const r = new FileReader();
-    r.onload = function(e) {
-        uploadedFileData = e.target.result;
-        if (f.type.startsWith('video')) {
-            uploadedFileType = 'video';
-            pb.innerHTML = '<video src="' + uploadedFileData + '" controls style="max-height:150px;border-radius:10px"></video>';
-        } else {
-            uploadedFileType = 'image';
-            pb.innerHTML = '<img src="' + uploadedFileData + '" style="max-height:150px;border-radius:10px">';
-        }
-    };
-    r.onerror = function() {
-        alert('文件读取失败');
-    };
-    r.readAsDataURL(f);
-}
+function editA(i){openM('edM');$('edI').value=i;$('edT').value=album[i].t;$('edTE').value=album[i].te||'';$('edD').value=album[i].d}
+function updateA(){const i=+$('edI').value;album[i].t=$('edT').value.trim();album[i].te=$('edTE').value.trim();album[i].d=$('edD').value.trim();saveAlbum();closeM('edM');renderA()}
+function delA(i){if(confirm('确定删除？')){album.splice(i,1);saveAlbum();renderA()}}
 
-function saveA() {
-    const t = $('upT').value.trim();
-    const te = $('upTE').value.trim();
-    const d = $('upD').value.trim();
-    
-    if (!t) { alert('请填写标题'); return; }
-    if (!uploadedFileData) { alert('请上传图片或视频'); return; }
-    
-    album.push({
-        t: t,
-        te: te,
-        d: d,
-        media: uploadedFileData,
-        type: uploadedFileType || 'image'
-    });
-    
-    saveAlbum();
-    closeM('upM');
-    renderA();
-    
-    // 清空表单
-    $('upT').value = '';
-    $('upTE').value = '';
-    $('upD').value = '';
-    $('previewBox').innerHTML = '';
-    $('upFile').value = '';
-    uploadedFileData = null;
-    uploadedFileType = null;
-}
-
-function editA(i) {
-    openM('edM');
-    $('edI').value = i;
-    $('edT').value = album[i].t;
-    $('edTE').value = album[i].te || '';
-    $('edD').value = album[i].d;
-}
-
-function updateA() {
-    const i = +$('edI').value;
-    album[i].t = $('edT').value.trim();
-    album[i].te = $('edTE').value.trim();
-    album[i].d = $('edD').value.trim();
-    saveAlbum();
-    closeM('edM');
-    renderA();
-}
-
-function delA(i) {
-    if (confirm('确定删除这个内容？')) {
-        album.splice(i, 1);
-        saveAlbum();
-        renderA();
-    }
-}
-
-function openLB(src, type) {
-    const decodedSrc = decodeURIComponent(src);
-    if (type === 'video') {
-        $('lbI').style.display = 'none';
-        $('lbV').style.display = 'block';
-        $('lbV').src = decodedSrc;
-    } else {
-        $('lbV').style.display = 'none';
-        $('lbI').style.display = 'block';
-        $('lbI').src = decodedSrc;
-    }
-    $('lb').classList.add('show');
-}
-
-$('lb').onclick = function() {
-    this.classList.remove('show');
-    $('lbV').pause();
-};
-
+function openLB(i){
+const a=album[i];if(!a||a.type==='emoji')return;
+if(a.type==='video'){$('lbI').style.display='none';$('lbV').style.display='block';$('lbV').src=a.media}
+else{$('lbV').style.display='none';$('lbI').style.display='block';$('lbI').src=a.media}
+$('lb').classList.add('show')}
+$('lb').onclick=function(){this.classList.remove('show');$('lbV').pause()};
 renderA();
 
 // ===== 游戏 =====
@@ -597,27 +551,11 @@ function doGift(){const ic=$('gift-icon');ic.textContent='✨';const g=pick(LIB.
 function doTrans(){
 let t=$('trans-i').value.trim();
 if(!t){$('trans-r').innerHTML='请输入点什么呀～🧸';return}
-const dict={
-'你好':'嗷呜嗷呜～🐾','我':'本熊🧸','你':'小人类👤','喜欢':'超级稀罕💕',
-'爱':'最最最稀罕❤️','开心':'蹦蹦跳跳哒～🎉','谢谢':'摸摸头回蹭蹭🐾',
-'晚安':'冬眠安安🌙💤','早上好':'熊晨好呜～🌞','再见':'挥挥熊掌拜拜👋',
-'吃':'嗷呜嗷呜啃啃🍯','睡觉':'呼噜噜冬眠去💤','好':'嗷嗷好！',
-'坏':'呜呜不喜欢😤','朋友':'同窝小伙伴🐻','家':'暖暖的树洞🏠',
-'工作':'搬蜂蜜桶💪','学习':'翻翻森林百科📖','漂亮':'像蜂蜜一样闪亮✨',
-'难过':'呜呜需要抱抱🥺','生气':'嗷——！炸毛了💢','冷':'抖抖抖要钻被窝❄️',
-'热':'热得想跳河🏊','饿':'肚子咕噜噜🍯','困':'眼皮打架了💤',
-'笑':'嘿嘿嘿露牙齿😁','哭':'呜呜呜鼻涕泡😢','跑':'四只脚飞起来🏃',
-'走':'咚咚咚踩地板🐾','想':'脑袋里全是蜂蜜🧠','太棒了':'嗷嗷嗷嗷！🎊',
-'加油':'熊掌拍拍给你力量！💪🐻','拜托':'熊眼汪汪求你啦  ',
-'好吃':'舔舔嘴巴还要！😋','下雨':'头顶举个大叶子🌿☔',
-'太阳':'暖暖的照在毛上☀️','月亮':'夜空中最圆的饼干🌙'
-};
+const dict={'你好':'嗷呜嗷呜～🐾','我':'本熊🧸','你':'小人类👤','喜欢':'超级稀罕💕','爱':'最最最稀罕❤️','开心':'蹦蹦跳跳哒～🎉','谢谢':'摸摸头回蹭蹭🐾','晚安':'冬眠安安🌙💤','早上好':'熊晨好呜～🌞','再见':'挥挥熊掌拜拜👋','吃':'嗷呜嗷呜啃啃🍯','睡觉':'呼噜噜冬眠去💤','好':'嗷嗷好！','坏':'呜呜不喜欢😤','朋友':'同窝小伙伴🐻','家':'暖暖的树洞🏠','工作':'搬蜂蜜桶💪','学习':'翻翻森林百科📖','漂亮':'像蜂蜜一样闪亮✨','难过':'呜呜需要抱抱🥺','生气':'嗷——！炸毛了💢','冷':'抖抖抖要钻被窝❄️','热':'热得想跳河🏊','饿':'肚子咕噜噜🍯','困':'眼皮打架了💤','笑':'嘿嘿嘿露牙齿😁','哭':'呜呜呜鼻涕泡😢','跑':'四只脚飞起来🏃','走':'咚咚咚踩地板🐾','想':'脑袋里全是蜂蜜🧠','太棒了':'嗷嗷嗷嗷！🎊','加油':'熊掌拍拍给你力量！💪🐻','拜托':'熊眼汪汪求你啦🥺','好吃':'舔舔嘴巴还要！😋','下雨':'头顶举个大叶子🌿☔','太阳':'暖暖的照在毛上☀️','月亮':'夜空中最圆的饼干🌙'};
 const suffixes=['嗷呜！🐻','(甩甩尾巴)','(蹭蹭~)','(打了个哈欠)','(舔舔爪子)','(竖起耳朵)','(歪头看你)','(拍拍肚子)','(翻个肚皮)'];
-let r=t;
-for(const[k,v] of Object.entries(dict))r=r.replaceAll(k,v);
+let r=t;for(const[k,v] of Object.entries(dict))r=r.replaceAll(k,v);
 r+=' '+pick(suffixes);
-$('trans-r').innerHTML='🐻 熊语: '+r;
-}
+$('trans-r').innerHTML='🐻 熊语: '+r}
 
 // 心情颜色
 function doMoodColor(){const m=pick(LIB.moodColors);$('mood-circle').style.background=m.color;$('mood-circle').style.boxShadow='0 4px 30px '+m.color+'66';$('mood-r').innerHTML='<b>'+m.cn+'</b><br><span class="ren">'+m.en+'</span><br><span style="font-size:.9rem;margin-top:6px;display:inline-block">'+m.desc+'</span>'}
@@ -626,101 +564,42 @@ function doMoodColor(){const m=pick(LIB.moodColors);$('mood-circle').style.backg
 (function(){const c=$('outfit-picks');LIB.outfitItems.forEach(item=>{const s=document.createElement('span');s.textContent=item;s.onclick=function(){$('outfit-r').innerHTML='🧸 + '+item+' = '+pick(LIB.outfitEvals)};c.appendChild(s)})})();
 function bearOutfit(){const r=[];for(let i=0;i<3;i++)r.push(pick(LIB.outfitItems));$('outfit-r').innerHTML='🧸 今日搭配: '+r.join(' ')+'<br>'+pick(LIB.outfitEvals)}
 
-// 森林点唱机 - 支持多首上传，localStorage持久化
-let playlist = [];
-try {
-    const saved = localStorage.getItem('bl_music');
-    if (saved) playlist = JSON.parse(saved);
-} catch(e) { playlist = []; }
+// ===== 森林点唱机 =====
+let playlist=[];
+try{const saved=localStorage.getItem('bl_music');if(saved)playlist=JSON.parse(saved)}catch(e){playlist=[]}
 
-function savePlaylist() {
-    try {
-        localStorage.setItem('bl_music', JSON.stringify(playlist));
-    } catch(e) {
-        // localStorage可能满了（音频base64很大），提示用户
-        if(e.name === 'QuotaExceededError') {
-            alert('存储空间已满，请删除一些曲目后再上传');
-        }
-    }
-}
+function savePlaylist(){try{localStorage.setItem('bl_music',JSON.stringify(playlist))}catch(e){if(e.name==='QuotaExceededError')alert('存储空间已满，请删除一些曲目后再上传')}}
 
-function renderPlaylist() {
-    const el = $('music-playlist');
-    if (!playlist.length) {
-        el.innerHTML = '<div style="text-align:center;padding:15px;color:var(--soft);font-size:.88rem">暂无曲目，快上传吧～🎵</div>';
-        return;
-    }
-    el.innerHTML = '';
-    playlist.forEach((s, i) => {
-        const d = document.createElement('div');
-        d.className = 'music-item';
-        d.id = 'mi-' + i;
-        d.innerHTML = '<span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1">🎵 ' + s.name + '</span><span style="display:flex;gap:6px;flex-shrink:0"><button class="rab" onclick="playTrack(' + i + ')" title="播放">▶</button><button class="rab" onclick="delTrack(' + i + ')" title="删除">🗑️</button></span>';
-        el.appendChild(d);
-    });
-}
+function renderPlaylist(){
+const el=$('music-playlist');
+if(!playlist.length){el.innerHTML='<div style="text-align:center;padding:15px;color:var(--soft);font-size:.88rem">暂无曲目，快上传吧～🎵</div>';return}
+el.innerHTML='';
+playlist.forEach((s,i)=>{
+const d=document.createElement('div');d.className='music-item';d.id='mi-'+i;
+d.innerHTML='<span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1">🎵 '+s.name+'</span><span style="display:flex;gap:6px;flex-shrink:0"><button class="rab" onclick="playTrack('+i+')" title="播放">▶</button><button class="rab" onclick="delTrack('+i+')" title="删除">🗑️</button></span>';
+el.appendChild(d)})}
 
-function handleMusicUpload(e) {
-    const files = e.target.files;
-    if (!files || !files.length) return;
-    
-    let loaded = 0;
-    const total = files.length;
-    
-    Array.from(files).forEach(f => {
-        // 限制单个文件大小（base64会更大）
-        if (f.size > 5 * 1024 * 1024) {
-            alert('文件 "' + f.name + '" 超过5MB，跳过');
-            loaded++;
-            return;
-        }
-        
-        const reader = new FileReader();
-        reader.onload = function(ev) {
-            playlist.push({
-                name: f.name.replace(/\.[^.]+$/, ''),
-                data: ev.target.result
-            });
-            loaded++;
-            if (loaded === total) {
-                savePlaylist();
-                renderPlaylist();
-            }
-        };
-        reader.onerror = function() {
-            loaded++;
-            alert('文件 "' + f.name + '" 读取失败');
-        };
-        reader.readAsDataURL(f);
-    });
-    
-    e.target.value = '';
-}
+function handleMusicUpload(e){
+const files=e.target.files;if(!files||!files.length)return;
+let loaded=0;const total=files.length;
+Array.from(files).forEach(f=>{
+if(f.size>5*1024*1024){alert('文件 "'+f.name+'" 超过5MB，跳过');loaded++;if(loaded===total){savePlaylist();renderPlaylist()};return}
+const reader=new FileReader();
+reader.onload=function(ev){
+playlist.push({name:f.name.replace(/\.[^.]+$/,''),data:ev.target.result});
+loaded++;if(loaded===total){savePlaylist();renderPlaylist()}
+};reader.onerror=function(){loaded++;alert('文件 "'+f.name+'" 读取失败')};
+reader.readAsDataURL(f)});
+e.target.value=''}
 
-function playTrack(i) {
-    if (!playlist[i]) return;
-    const a = $('forest-audio');
-    a.src = playlist[i].data;
-    a.play();
-    $('np-cn').textContent = playlist[i].name;
-    $('np-en').textContent = 'Now Playing';
-    document.querySelectorAll('.music-item').forEach((el, j) => el.classList.toggle('playing', j === i));
-    a.onended = function() {
-        if (i + 1 < playlist.length) playTrack(i + 1);
-    };
-}
+function playTrack(i){
+if(!playlist[i])return;
+const a=$('forest-audio');a.src=playlist[i].data;a.play();
+$('np-cn').textContent=playlist[i].name;$('np-en').textContent='Now Playing';
+document.querySelectorAll('.music-item').forEach((el,j)=>el.classList.toggle('playing',j===i));
+a.onended=function(){if(i+1<playlist.length)playTrack(i+1)}}
 
-function delTrack(i) {
-    if (confirm('删除 "' + playlist[i].name + '"？')) {
-        playlist.splice(i, 1);
-        savePlaylist();
-        renderPlaylist();
-        $('np-cn').textContent = '未选择曲目';
-        $('np-en').textContent = 'No track selected';
-        $('forest-audio').src = '';
-    }
-}
-
+function delTrack(i){if(confirm('删除 "'+playlist[i].name+'"？')){playlist.splice(i,1);savePlaylist();renderPlaylist();$('np-cn').textContent='未选择曲目';$('np-en').textContent='No track selected';$('forest-audio').src=''}}
 renderPlaylist();
 
 // 捕捉小快闪
@@ -759,10 +638,7 @@ fish:{em:'🎣',cn:['小贝尔拿着鱼竿耐心等待。','钓到了一条小�
 };
 
 let pet={e:80,h:70,c:60};
-try{
-const saved=JSON.parse(localStorage.getItem('bl_pet'));
-if(saved&&typeof saved.e==='number'&&!isNaN(saved.e)){pet.e=saved.e;pet.h=saved.h;pet.c=saved.c}
-}catch(ex){}
+try{const saved=JSON.parse(localStorage.getItem('bl_pet'));if(saved&&typeof saved.e==='number'&&!isNaN(saved.e)){pet.e=saved.e;pet.h=saved.h;pet.c=saved.c}}catch(ex){}
 if(isNaN(pet.e))pet.e=80;if(isNaN(pet.h))pet.h=70;if(isNaN(pet.c))pet.c=60;
 let petTime=parseInt(localStorage.getItem('bl_pt'))||Date.now();
 (function(){const n=Date.now(),d=Math.floor((n-petTime)/60000);if(d>0){pet.e=Math.max(0,pet.e-d*0.5);pet.h=Math.max(0,pet.h-d*0.3);pet.c=Math.max(0,pet.c-d*0.2)}})();
@@ -788,11 +664,8 @@ case'game':pet.h=Math.min(100,pet.h+18);pet.e=Math.max(0,pet.e-5);break;
 case'explore':pet.h=Math.min(100,pet.h+20);pet.e=Math.max(0,pet.e-15);pet.c=Math.max(0,pet.c-10);break;
 case'hug':pet.h=Math.min(100,pet.h+20);pet.e=Math.min(100,pet.e+5);break;
 case'dance':pet.h=Math.min(100,pet.h+18);pet.e=Math.max(0,pet.e-12);break;
-case'fish':pet.h=Math.min(100,pet.h+10);pet.e=Math.max(0,pet.e-5);pet.c=Math.max(0,pet.c-3);break;
-}
-savePet();upPet();
-setTimeout(()=>{$('bearAv').textContent='🧸'},3000);
-}
+case'fish':pet.h=Math.min(100,pet.h+10);pet.e=Math.max(0,pet.e-5);pet.c=Math.max(0,pet.c-3);break}
+savePet();upPet();setTimeout(()=>{$('bearAv').textContent='🧸'},3000)}
 
 // ===== 社区 =====
 let posts=JSON.parse(localStorage.getItem('bl_posts')||'[]');
@@ -802,11 +675,9 @@ if(!posts.length){box.innerHTML='<div style="text-align:center;color:var(--soft)
 box.innerHTML=posts.map((p,i)=>{
 let rhtml='';
 if(p.replies&&p.replies.length){
-rhtml='<div class="rpls">'+p.replies.map((r,j)=>'<div class="rpl"><div class="rav">🐾</div><div class="rbd"><div class="rn">'+r.name+'</div><div class="rt">'+r.text+'</div><div class="racts"><button class="rab '+(r.liked?'liked':'')+'" onclick="likeR('+i+','+j+')">❤ '+(r.likes||0)+'</button><button class="rab" onclick="delR('+i+','+j+')">🗑️</button></div></div></div>').join('')+'</div>';
-}
-return '<div class="pc"><div class="phd"><div class="pav">🧸</div><div><div class="pnm">'+p.name+'</div><div class="ptm">'+p.time+'</div></div></div><div class="pbd">'+p.text+'</div><div class="pft"><button class="pfb '+(p.liked?'liked':'')+'" onclick="likeP('+i+')"><i class="fas fa-heart"></i> '+(p.likes||0)+'</button><button class="pfb" onclick="toggleR('+i+')"><i class="fas fa-comment"></i> 评论</button><button class="pfb" onclick="delP('+i+')"><i class="fas fa-trash"></i></button></div>'+rhtml+'<div class="rinp" id="rinp'+i+'"><input type="text" id="rn'+i+'" placeholder="昵称"><input type="text" id="rt'+i+'" placeholder="写评论..." style="flex:2"><button onclick="addR('+i+')">发送</button></div></div>';
-}).join('');
-}
+rhtml='<div class="rpls">'+p.replies.map((r,j)=>'<div class="rpl"><div class="rav">🐾</div><div class="rbd"><div class="rn">'+r.name+'</div><div class="rt">'+r.text+'</div><div class="racts"><button class="rab '+(r.liked?'liked':'')+'" onclick="likeR('+i+','+j+')">❤ '+(r.likes||0)+'</button><button class="rab" onclick="delR('+i+','+j+')">🗑️</button></div></div></div>').join('')+'</div>'}
+return '<div class="pc"><div class="phd"><div class="pav">🧸</div><div><div class="pnm">'+p.name+'</div><div class="ptm">'+p.time+'</div></div></div><div class="pbd">'+p.text+'</div><div class="pft"><button class="pfb '+(p.liked?'liked':'')+'" onclick="likeP('+i+')"><i class="fas fa-heart"></i> '+(p.likes||0)+'</button><button class="pfb" onclick="toggleR('+i+')"><i class="fas fa-comment"></i> 评论</button><button class="pfb" onclick="delP('+i+')"><i class="fas fa-trash"></i></button></div>'+rhtml+'<div class="rinp" id="rinp'+i+'"><input type="text" id="rn'+i+'" placeholder="昵称"><input type="text" id="rt'+i+'" placeholder="写评论..." style="flex:2"><button onclick="addR('+i+')">发送</button></div></div>'}).join('')}
+
 function pubPost(){const name=$('postName').value.trim()||'匿名小熊';const txt=$('postIn').value.trim();if(!txt){alert('请输入内容');return}posts.unshift({name,text:txt,time:new Date().toLocaleDateString(),likes:0,liked:false,replies:[]});localStorage.setItem('bl_posts',JSON.stringify(posts));$('postIn').value='';renderPosts()}
 function likeP(i){posts[i].liked=!posts[i].liked;posts[i].likes=(posts[i].likes||0)+(posts[i].liked?1:-1);localStorage.setItem('bl_posts',JSON.stringify(posts));renderPosts()}
 function delP(i){if(confirm('删除此帖？')){posts.splice(i,1);localStorage.setItem('bl_posts',JSON.stringify(posts));renderPosts()}}
