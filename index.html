@@ -2,245 +2,211 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>🧸 Bearland - 小熊乐园</title>
-<link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;600;700;800;900&family=Pangolin&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;600;700;800;900&family=Pangolin&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root{--honey:#FFB300;--hd:#FF8F00;--brown:#5D4E37;--soft:#8B7355;--cream:#FFFDF5;--white:#fff;--sh:0 8px 32px rgba(93,78,55,.1);--shh:0 16px 48px rgba(93,78,55,.18);--r:24px}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{font-family:'Microsoft YaHei','微软雅黑','PingFang SC',sans-serif;background:var(--cream);color:var(--brown);line-height:1.8;overflow-x:hidden}
+body{font-family:'PingFang SC','Microsoft YaHei','微软雅黑',sans-serif;background:var(--cream);color:var(--brown);line-height:1.8;overflow-x:hidden;-webkit-text-size-adjust:100%}
 
-.navbar{position:fixed;top:0;left:0;right:0;height:70px;background:rgba(255,253,245,.95);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:space-between;padding:0 48px;z-index:999;box-shadow:0 2px 20px rgba(93,78,55,.06)}
-.logo{font-family:'Grandstander',cursive;font-weight:900;font-size:2rem;color:var(--brown);text-decoration:none;display:flex;align-items:center;gap:10px;letter-spacing:2px;text-shadow:2px 2px 0 rgba(255,179,0,.3)}
-.nav-links{display:flex;gap:6px;list-style:none}
-.nav-links a{text-decoration:none;font-weight:600;font-size:.88rem;color:var(--soft);padding:10px 18px;border-radius:50px;transition:all .3s;display:flex;flex-direction:column;align-items:center;line-height:1.3}
-.nav-links a .nen{font-family:'Pangolin',cursive;font-size:.72rem;opacity:.65}
+.navbar{position:fixed;top:0;left:0;right:0;height:60px;background:rgba(255,253,245,.96);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:999;box-shadow:0 2px 20px rgba(93,78,55,.06)}
+.logo{font-family:'Grandstander',cursive;font-weight:900;font-size:1.5rem;color:var(--brown);text-decoration:none;display:flex;align-items:center;gap:8px}
+.hamburger{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--brown);padding:8px;-webkit-tap-highlight-color:transparent}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{text-decoration:none;font-weight:600;font-size:.85rem;color:var(--soft);padding:8px 16px;border-radius:50px;transition:all .3s;display:flex;flex-direction:column;align-items:center;line-height:1.3}
+.nav-links a .nen{font-family:'Pangolin',cursive;font-size:.7rem;opacity:.6}
 .nav-links a:hover{color:var(--brown);background:rgba(255,179,0,.1)}
 .nav-links a.active{background:var(--honey);color:#fff}
-.hamburger{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--brown);padding:8px}
 
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 40px 60px;background:linear-gradient(180deg,#FFFDF5 0%,#FFF8E1 50%,#FFECB3 100%);position:relative;overflow:hidden}
-.hero-title{font-family:'Grandstander',cursive;font-size:5rem;font-weight:900;color:var(--brown);text-shadow:4px 4px 0 rgba(255,179,0,.25);margin-bottom:18px}
-.hero-slogan{font-size:1.3rem;font-weight:600;color:var(--brown);margin-bottom:8px}
-.hero-slogan-en{font-family:'Pangolin',cursive;font-size:1.1rem;color:var(--soft);letter-spacing:1px;margin-bottom:40px}
-.wbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,179,0,.15);border:1px solid rgba(255,179,0,.3);padding:12px 28px;border-radius:50px;font-size:1rem;font-weight:600;color:var(--brown);cursor:pointer;transition:all .3s;margin-bottom:22px}
-.wbadge:hover{background:rgba(255,179,0,.25);transform:scale(1.03)}
-.wbox{max-width:650px;background:rgba(255,255,255,.8);backdrop-filter:blur(10px);border-radius:var(--r);padding:28px 36px;margin-bottom:40px;box-shadow:var(--sh);border:1px solid rgba(255,179,0,.15);cursor:pointer;transition:all .3s}
-.wbox:hover{transform:translateY(-3px);box-shadow:var(--shh)}
-.wcn{font-size:1.15rem;line-height:2;margin-bottom:10px}
-.wen{font-family:'Pangolin',cursive;font-size:1rem;color:var(--soft);line-height:1.8}
-.hero-cta{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--honey),var(--hd));color:#fff;padding:16px 40px;border-radius:50px;font-size:1.1rem;font-weight:700;text-decoration:none;box-shadow:0 8px 30px rgba(255,179,0,.4);transition:all .3s}
-.hero-cta:hover{transform:translateY(-3px)}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 20px 50px;background:linear-gradient(180deg,#FFFDF5 0%,#FFF8E1 50%,#FFECB3 100%)}
+.hero-title{font-family:'Grandstander',cursive;font-size:4rem;font-weight:900;color:var(--brown);text-shadow:3px 3px 0 rgba(255,179,0,.25);margin-bottom:14px}
+.hero-slogan{font-size:1.15rem;font-weight:600;color:var(--brown);margin-bottom:6px}
+.hero-slogan-en{font-family:'Pangolin',cursive;font-size:1rem;color:var(--soft);margin-bottom:30px}
+.wbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,179,0,.15);border:1px solid rgba(255,179,0,.3);padding:10px 24px;border-radius:50px;font-size:.95rem;font-weight:600;color:var(--brown);cursor:pointer;transition:all .3s;margin-bottom:18px;-webkit-tap-highlight-color:transparent}
+.wbox{max-width:600px;width:100%;background:rgba(255,255,255,.8);backdrop-filter:blur(10px);border-radius:var(--r);padding:24px 28px;margin-bottom:32px;box-shadow:var(--sh);border:1px solid rgba(255,179,0,.15);cursor:pointer}
+.wcn{font-size:1.05rem;line-height:2;margin-bottom:8px}
+.wen{font-family:'Pangolin',cursive;font-size:.95rem;color:var(--soft)}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--honey),var(--hd));color:#fff;padding:14px 34px;border-radius:50px;font-size:1rem;font-weight:700;text-decoration:none;box-shadow:0 8px 30px rgba(255,179,0,.4)}
 
-.shd{text-align:center;margin-bottom:50px}
-.shd h2{font-size:2.5rem;font-weight:800;color:var(--brown);margin-bottom:8px}
-.shd .en{font-family:'Pangolin',cursive;font-size:1.15rem;color:var(--soft);letter-spacing:2px}
-.shd .line{width:60px;height:4px;background:linear-gradient(90deg,var(--honey),var(--brown));margin:16px auto 0;border-radius:2px}
-section{padding:80px 40px}
+.shd{text-align:center;margin-bottom:40px}
+.shd h2{font-size:2rem;font-weight:800;color:var(--brown);margin-bottom:6px}
+.shd .en{font-family:'Pangolin',cursive;font-size:1rem;color:var(--soft)}
+.shd .line{width:50px;height:4px;background:linear-gradient(90deg,var(--honey),var(--brown));margin:14px auto 0;border-radius:2px}
+section{padding:60px 16px}
 
 #theater{background:linear-gradient(135deg,#FFF8E1,#FFFDF5)}
-.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px;max-width:1200px;margin:0 auto}
+.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;max-width:1200px;margin:0 auto}
 .acard{background:var(--white);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);transition:all .35s}
-.acard:hover{transform:translateY(-8px);box-shadow:var(--shh)}
-.acard .cimg{width:100%;height:220px;object-fit:cover;cursor:pointer}
-.acard video{width:100%;height:220px;object-fit:cover;border-radius:var(--r) var(--r) 0 0}
-.acard .emoji-cover{width:100%;height:220px;display:flex;align-items:center;justify-content:center;font-size:6rem;background:linear-gradient(135deg,#FFF8E1,#FFECB3);cursor:pointer}
-.acard .cbd{padding:20px 22px 10px}
-.acard h3{font-size:1.1rem;font-weight:700;margin-bottom:4px}
-.acard .ten{font-family:'Pangolin',cursive;font-size:.95rem;color:var(--soft);margin-bottom:10px}
-.acard p{font-size:.88rem;color:var(--soft);line-height:1.7}
-.acard .cact{display:flex;gap:6px;padding:12px 20px 18px;flex-wrap:wrap}
-.abtn{padding:6px 14px;border:none;border-radius:50px;font-size:.76rem;font-weight:600;cursor:pointer;transition:all .3s}
+.acard:hover{transform:translateY(-6px);box-shadow:var(--shh)}
+.acard .cimg{width:100%;height:200px;object-fit:cover;cursor:pointer}
+.acard video{width:100%;height:200px;object-fit:cover}
+.emoji-cover{width:100%;height:200px;display:flex;align-items:center;justify-content:center;font-size:5rem;background:linear-gradient(135deg,#FFF8E1,#FFECB3);user-select:none}
+.acard .cbd{padding:18px 20px 8px}
+.acard h3{font-size:1.05rem;font-weight:700;margin-bottom:3px}
+.acard .ten{font-family:'Pangolin',cursive;font-size:.9rem;color:var(--soft);margin-bottom:8px}
+.acard p{font-size:.85rem;color:var(--soft);line-height:1.7}
+.acard .cact{display:flex;gap:6px;padding:10px 18px 16px;flex-wrap:wrap}
+.abtn{padding:6px 14px;border:none;border-radius:50px;font-size:.75rem;font-weight:600;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .abtn.ed{background:#E3F2FD;color:#1976D2}.abtn.dl{background:#FFEBEE;color:#D32F2F}
-.addc{background:var(--white);border:3px dashed rgba(93,78,55,.18);border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:380px;cursor:pointer;transition:all .3s}
-.addc:hover{border-color:var(--honey);transform:translateY(-5px)}
-.addc i{font-size:3rem;color:var(--honey);margin-bottom:15px}
+.addc{background:var(--white);border:3px dashed rgba(93,78,55,.18);border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px;cursor:pointer}
+.addc i{font-size:2.5rem;color:var(--honey);margin-bottom:12px}
 .addc span{font-weight:600;color:var(--soft)}
 
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000;align-items:center;justify-content:center}
 .modal.show{display:flex}
-.mbox{background:#fff;border-radius:28px;padding:38px;max-width:520px;width:92%;max-height:88vh;overflow-y:auto;position:relative}
-.mbox h3{font-size:1.4rem;text-align:center;margin-bottom:22px}
-.mx{position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--soft)}
-.fg{margin-bottom:16px}
-.fg label{display:block;font-weight:600;margin-bottom:6px;font-size:.9rem}
-.fg input,.fg textarea{width:100%;padding:12px 16px;border:2px solid #e8e0d4;border-radius:14px;font-size:.95rem;font-family:inherit;background:#fefcf8}
+.mbox{background:#fff;border-radius:24px;padding:30px 24px;max-width:480px;width:94%;max-height:88vh;overflow-y:auto;position:relative}
+.mbox h3{font-size:1.3rem;text-align:center;margin-bottom:18px}
+.mx{position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--soft)}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-weight:600;margin-bottom:5px;font-size:.88rem}
+.fg input,.fg textarea{width:100%;padding:11px 14px;border:2px solid #e8e0d4;border-radius:14px;font-size:.92rem;font-family:inherit;background:#fefcf8}
 .fg input:focus,.fg textarea:focus{outline:none;border-color:var(--honey)}
-.fg textarea{resize:vertical;min-height:80px}
-.uz{border:2px dashed #d4c8b8;border-radius:14px;padding:28px;text-align:center;cursor:pointer;background:#fefcf8;transition:all .3s}
-.uz:hover{border-color:var(--honey)}
-.uz i{font-size:2rem;color:var(--honey);margin-bottom:8px;display:block}
-.btnp{background:linear-gradient(135deg,var(--honey),var(--hd));color:#fff;border:none;padding:14px 36px;border-radius:50px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;box-shadow:0 4px 15px rgba(255,179,0,.3)}
-.btnp:hover{transform:translateY(-2px)}
+.fg textarea{resize:vertical;min-height:70px}
+.uz{border:2px dashed #d4c8b8;border-radius:14px;padding:24px;text-align:center;cursor:pointer;background:#fefcf8}
+.uz i{font-size:1.8rem;color:var(--honey);margin-bottom:6px;display:block}
+.btnp{background:linear-gradient(135deg,var(--honey),var(--hd));color:#fff;border:none;padding:13px 30px;border-radius:50px;font-size:1rem;font-weight:700;cursor:pointer;width:100%}
 .lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:3000;align-items:center;justify-content:center;cursor:zoom-out}
 .lb.show{display:flex}
 .lb img,.lb video{max-width:92%;max-height:92%;border-radius:12px}
 .preview-box{margin-top:10px;text-align:center}
-.preview-box img,.preview-box video{max-width:100%;max-height:150px;border-radius:10px}
+.preview-box img,.preview-box video{max-width:100%;max-height:120px;border-radius:10px}
 
 #games{background:linear-gradient(180deg,#FFFDF5,#FFF8E1)}
-.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;max-width:1300px;margin:0 auto}
-.gc{background:var(--white);border-radius:var(--r);padding:30px 25px;text-align:center;box-shadow:var(--sh);transition:all .35s}
-.gc:hover{transform:translateY(-6px);box-shadow:var(--shh)}
-.gc .gi{font-size:3rem;margin-bottom:14px;display:block}
-.gc .gt{font-size:1.25rem;font-weight:700;color:var(--brown);margin-bottom:5px}
-.gc .gte{font-family:'Pangolin',cursive;font-size:.95rem;color:var(--soft);margin-bottom:14px}
-.gc p{font-size:.88rem;color:var(--soft);margin-bottom:14px}
-.gr{background:var(--cream);border-radius:16px;padding:16px;min-height:55px;font-size:.92rem;line-height:1.7;margin-bottom:14px}
-.gr .ren{font-family:'Pangolin',cursive;font-size:.88rem;color:var(--soft);margin-top:6px}
-.ginp{width:100%;padding:12px 18px;border:2px solid #e8e0d4;border-radius:50px;font-size:.95rem;font-family:inherit;margin-bottom:12px;background:#fefcf8}
+.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;max-width:1300px;margin:0 auto}
+.gc{background:var(--white);border-radius:var(--r);padding:26px 22px;text-align:center;box-shadow:var(--sh);transition:all .3s}
+.gc .gi{font-size:2.8rem;margin-bottom:12px;display:block}
+.gc .gt{font-size:1.15rem;font-weight:700;color:var(--brown);margin-bottom:4px}
+.gc .gte{font-family:'Pangolin',cursive;font-size:.9rem;color:var(--soft);margin-bottom:12px}
+.gc p{font-size:.85rem;color:var(--soft);margin-bottom:12px}
+.gr{background:var(--cream);border-radius:14px;padding:14px;min-height:50px;font-size:.9rem;line-height:1.7;margin-bottom:12px;word-break:break-word}
+.gr .ren{font-family:'Pangolin',cursive;font-size:.85rem;color:var(--soft);margin-top:4px}
+.ginp{width:100%;padding:10px 16px;border:2px solid #e8e0d4;border-radius:50px;font-size:.92rem;font-family:inherit;margin-bottom:10px;background:#fefcf8}
 .ginp:focus{outline:none;border-color:var(--honey)}
-.gbtn{background:linear-gradient(135deg,var(--honey),var(--hd));color:#fff;border:none;padding:12px 28px;border-radius:50px;font-size:.95rem;font-weight:700;cursor:pointer;box-shadow:0 4px 15px rgba(255,179,0,.3)}
-.gbtn:hover{transform:translateY(-2px)}
-.mood-circle{width:80px;height:80px;border-radius:50%;margin:15px auto;transition:all .5s;background:#E0D3C2}
-.outfit-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:10px 0}
-.outfit-grid span{cursor:pointer;font-size:1.8rem;padding:4px;border-radius:10px;transition:all .3s}
-.outfit-grid span:hover{transform:scale(1.3)}
-.seek-area{position:relative;width:100%;height:200px;background:#f5f0e8;border-radius:16px;overflow:hidden;margin:14px 0;cursor:crosshair}
-.moving-bear{position:absolute;font-size:2rem;transition:all .3s;user-select:none}
-.music-playlist{max-height:180px;overflow-y:auto;margin:10px 0}
-.music-item{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-radius:12px;transition:all .2s;cursor:pointer;font-size:.88rem;margin-bottom:4px;background:#fefcf8}
-.music-item:hover{background:rgba(255,179,0,.1)}
+.gbtn{background:linear-gradient(135deg,var(--honey),var(--hd));color:#fff;border:none;padding:10px 24px;border-radius:50px;font-size:.92rem;font-weight:700;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.mood-circle{width:70px;height:70px;border-radius:50%;margin:12px auto;transition:all .5s;background:#E0D3C2}
+.outfit-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;margin:8px 0}
+.outfit-grid span{cursor:pointer;font-size:1.5rem;padding:3px;border-radius:8px;-webkit-tap-highlight-color:transparent}
+.seek-area{position:relative;width:100%;height:180px;background:#f5f0e8;border-radius:14px;overflow:hidden;margin:12px 0;cursor:crosshair;touch-action:none}
+.moving-bear{position:absolute;font-size:2rem;user-select:none;-webkit-tap-highlight-color:transparent}
+.music-playlist{max-height:160px;overflow-y:auto;margin:8px 0}
+.music-item{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:10px;cursor:pointer;font-size:.85rem;margin-bottom:3px;background:#fefcf8}
 .music-item.playing{background:rgba(255,179,0,.2);font-weight:700}
-.upload-area{border:2px dashed #d4c8b8;border-radius:14px;padding:20px;text-align:center;cursor:pointer;margin-top:10px;transition:all .3s}
-.upload-area:hover{border-color:var(--honey)}
+.upload-area{border:2px dashed #d4c8b8;border-radius:14px;padding:16px;text-align:center;cursor:pointer;margin-top:8px}
 
-.bday{max-width:800px;margin:50px auto 0;background:var(--white);border-radius:32px;padding:40px;box-shadow:var(--sh);text-align:center}
-.ba-icon{font-size:5rem;margin-bottom:15px;display:block}
-.sbs{max-width:400px;margin:0 auto 20px}
-.sb{margin-bottom:10px}
-.sb label{display:flex;justify-content:space-between;font-weight:600;font-size:.83rem;margin-bottom:4px}
-.bt{height:11px;background:#f0e8dc;border-radius:10px;overflow:hidden}
+.bday{max-width:800px;margin:40px auto 0;background:var(--white);border-radius:28px;padding:32px 20px;box-shadow:var(--sh);text-align:center}
+.ba-icon{font-size:4rem;margin-bottom:12px;display:block}
+.sbs{max-width:360px;margin:0 auto 18px}
+.sb{margin-bottom:8px}
+.sb label{display:flex;justify-content:space-between;font-weight:600;font-size:.82rem;margin-bottom:3px}
+.bt{height:10px;background:#f0e8dc;border-radius:10px;overflow:hidden}
 .bf{height:100%;border-radius:10px;transition:width .5s}
 .bf.en{background:linear-gradient(90deg,#FFB300,#FF8F00)}
 .bf.hp{background:linear-gradient(90deg,#66BB6A,#43A047)}
 .bf.cl{background:linear-gradient(90deg,#42A5F5,#1E88E5)}
-.bstat{font-size:1.05rem;margin-bottom:20px;min-height:60px;line-height:1.8}
-.bstat .se{font-family:'Pangolin',cursive;font-size:.95rem;color:var(--soft)}
-.bacts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-.bbtn{padding:12px 20px;border:none;border-radius:50px;font-size:.88rem;font-weight:600;cursor:pointer;transition:all .3s}
-.bbtn:hover{transform:translateY(-2px)}
+.bstat{font-size:1rem;margin-bottom:16px;min-height:50px;line-height:1.8}
+.bstat .se{font-family:'Pangolin',cursive;font-size:.9rem;color:var(--soft)}
+.bacts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.bbtn{padding:10px 16px;border:none;border-radius:50px;font-size:.82rem;font-weight:600;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .b1{background:#FFF3E0;color:#E65100}.b2{background:#E8F5E9;color:#2E7D32}.b3{background:#E3F2FD;color:#1565C0}.b4{background:#F3E5F5;color:#7B1FA2}.b5{background:#FFF8E1;color:#F9A825}.b6{background:#FCE4EC;color:#C2185B}.b7{background:#E0F2F1;color:#00796B}.b8{background:#EFEBE9;color:#5D4037}.b9{background:#E8EAF6;color:#303F9F}
-.mg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:14px 0}
-.mc{aspect-ratio:1;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;cursor:pointer;transition:all .3s;background:#f5f0e8}
-.mc:hover{background:#ebe3d6;transform:scale(1.05)}
+.mg{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:12px 0}
+.mc{aspect-ratio:1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;cursor:pointer;background:#f5f0e8;-webkit-tap-highlight-color:transparent}
 
 #community{background:#FFFDF5}
-.cw{max-width:780px;margin:0 auto}
-.compose{background:var(--white);border-radius:var(--r);padding:28px;margin-bottom:28px;box-shadow:var(--sh)}
-.compose input,.compose textarea{width:100%;border:2px solid #e8e0d4;border-radius:16px;padding:14px 18px;font-size:1rem;font-family:inherit;resize:vertical;background:#fefcf8;margin-bottom:10px}
+.cw{max-width:720px;margin:0 auto}
+.compose{background:var(--white);border-radius:var(--r);padding:22px;margin-bottom:24px;box-shadow:var(--sh)}
+.compose input,.compose textarea{width:100%;border:2px solid #e8e0d4;border-radius:14px;padding:12px 16px;font-size:.95rem;font-family:inherit;background:#fefcf8;margin-bottom:8px}
 .compose input:focus,.compose textarea:focus{outline:none;border-color:var(--honey)}
-.compose textarea{min-height:78px}
-.cra{display:flex;justify-content:flex-end;margin-top:8px}
-.pc{background:var(--white);border-radius:var(--r);padding:26px;margin-bottom:18px;box-shadow:var(--sh)}
-.phd{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.pav{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--honey),var(--hd));display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff}
-.pnm{font-weight:700;font-size:.93rem}
-.ptm{font-size:.76rem;color:var(--soft)}
-.pbd{font-size:.95rem;line-height:1.8;margin-bottom:14px}
-.pft{display:flex;gap:16px;padding-top:12px;border-top:1px solid #f0e8dc}
-.pfb{background:none;border:none;cursor:pointer;font-size:.86rem;color:var(--soft);display:flex;align-items:center;gap:5px;font-weight:600;padding:6px 12px;border-radius:50px;font-family:inherit}
-.pfb:hover{background:#f5f0e8;color:var(--brown)}
+.compose textarea{min-height:70px;resize:vertical}
+.cra{display:flex;justify-content:flex-end;margin-top:6px}
+.pc{background:var(--white);border-radius:var(--r);padding:22px;margin-bottom:16px;box-shadow:var(--sh)}
+.phd{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.pav{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--honey),var(--hd));display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#fff;flex-shrink:0}
+.pnm{font-weight:700;font-size:.9rem}
+.ptm{font-size:.74rem;color:var(--soft)}
+.pbd{font-size:.92rem;line-height:1.8;margin-bottom:12px}
+.pft{display:flex;gap:14px;padding-top:10px;border-top:1px solid #f0e8dc}
+.pfb{background:none;border:none;cursor:pointer;font-size:.84rem;color:var(--soft);display:flex;align-items:center;gap:4px;font-weight:600;padding:5px 10px;border-radius:50px;font-family:inherit;-webkit-tap-highlight-color:transparent}
+.pfb:hover{background:#f5f0e8}
 .pfb.liked{color:#E91E63}
-.rpls{margin-top:14px;padding-left:18px;border-left:3px solid #f0e8dc}
-.rpl{padding:10px 0;border-bottom:1px solid #f8f4ee;display:flex;gap:10px}
+.rpls{margin-top:12px;padding-left:16px;border-left:3px solid #f0e8dc}
+.rpl{padding:8px 0;border-bottom:1px solid #f8f4ee;display:flex;gap:8px}
 .rpl:last-child{border-bottom:none}
-.rav{width:30px;height:30px;border-radius:50%;background:#f0e8dc;display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0}
+.rav{width:28px;height:28px;border-radius:50%;background:#f0e8dc;display:flex;align-items:center;justify-content:center;font-size:.7rem;flex-shrink:0}
 .rbd{flex:1}
-.rbd .rn{font-weight:700;font-size:.83rem}
-.rbd .rt{font-size:.86rem;margin-top:2px}
-.racts{display:flex;gap:10px;margin-top:4px}
-.rab{background:none;border:none;font-size:.76rem;color:var(--soft);cursor:pointer;font-weight:600;padding:2px 6px;border-radius:8px;font-family:inherit}
-.rab:hover{background:#f5f0e8;color:var(--brown)}
+.rbd .rn{font-weight:700;font-size:.8rem}
+.rbd .rt{font-size:.84rem;margin-top:2px}
+.racts{display:flex;gap:8px;margin-top:3px}
+.rab{background:none;border:none;font-size:.74rem;color:var(--soft);cursor:pointer;font-weight:600;padding:2px 5px;border-radius:8px;font-family:inherit;-webkit-tap-highlight-color:transparent}
 .rab.liked{color:#E91E63}
-.rinp{display:none;margin-top:12px}
-.rinp.show{display:flex;gap:8px}
-.rinp input{flex:1;padding:10px 16px;border:2px solid #e8e0d4;border-radius:50px;font-family:inherit;font-size:.88rem;background:#fefcf8}
+.rinp{display:none;margin-top:10px}
+.rinp.show{display:flex;gap:6px}
+.rinp input{flex:1;padding:8px 14px;border:2px solid #e8e0d4;border-radius:50px;font-family:inherit;font-size:.85rem;background:#fefcf8}
 .rinp input:focus{border-color:var(--honey);outline:none}
-.rinp button{padding:10px 20px;border-radius:50px;background:var(--honey);color:#fff;border:none;font-weight:700;cursor:pointer;font-size:.82rem}
+.rinp button{padding:8px 16px;border-radius:50px;background:var(--honey);color:#fff;border:none;font-weight:700;cursor:pointer;font-size:.8rem}
 
 #about{background:linear-gradient(135deg,#FFF8E1,#FFFDF5)}
-.abox{display:flex;gap:55px;align-items:center;max-width:900px;margin:0 auto;flex-wrap:wrap;justify-content:center}
-.aav{width:260px;height:260px;border-radius:50%;overflow:hidden;box-shadow:0 12px 40px rgba(93,78,55,.15);flex-shrink:0;position:relative;cursor:pointer;border:4px solid var(--honey)}
+.abox{display:flex;gap:40px;align-items:center;max-width:900px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.aav{width:220px;height:220px;border-radius:50%;overflow:hidden;box-shadow:0 12px 40px rgba(93,78,55,.15);flex-shrink:0;position:relative;cursor:pointer;border:4px solid var(--honey)}
 .aav img{width:100%;height:100%;object-fit:cover}
 .aav .avo{position:absolute;inset:0;background:rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;border-radius:50%}
 .aav:hover .avo{opacity:1}
-.avo i{font-size:2rem;color:#fff}
-.atxt{max-width:450px;text-align:center}
-.atxt h2{font-family:'Grandstander',cursive;font-size:2.5rem;font-weight:900;color:var(--brown);margin-bottom:5px}
-.atxt .ae{font-family:'Pangolin',cursive;font-size:1.1rem;color:var(--soft);margin-bottom:20px}
-.atxt p{font-size:1rem;line-height:2}
-.atxt .stars{font-size:2.2rem;margin-top:25px;letter-spacing:10px}
+.avo i{font-size:1.8rem;color:#fff}
+.atxt{max-width:420px;text-align:center}
+.atxt h2{font-family:'Grandstander',cursive;font-size:2.2rem;font-weight:900;color:var(--brown);margin-bottom:4px}
+.atxt .ae{font-family:'Pangolin',cursive;font-size:1rem;color:var(--soft);margin-bottom:16px}
+.atxt p{font-size:.95rem;line-height:2}
+.atxt .stars{font-size:2rem;margin-top:20px;letter-spacing:8px}
 
-footer{background:var(--brown);color:rgba(255,255,255,.85);text-align:center;padding:50px 20px}
-.ftl{font-size:1.5rem;font-weight:700;margin-bottom:12px}
-.ftcn{font-size:1rem;margin-bottom:5px;font-weight:600;color:var(--honey)}
-.ften{font-family:'Pangolin',cursive;font-size:1rem;opacity:.7;margin-bottom:22px}
-.ftcp{font-size:.82rem;opacity:.5}
+footer{background:var(--brown);color:rgba(255,255,255,.85);text-align:center;padding:40px 16px}
+.ftl{font-size:1.3rem;font-weight:700;margin-bottom:10px}
+.ftcn{font-size:.95rem;margin-bottom:4px;font-weight:600;color:var(--honey)}
+.ften{font-family:'Pangolin',cursive;font-size:.9rem;opacity:.7;margin-bottom:18px}
+.ftcp{font-size:.78rem;opacity:.5}
 
-.reveal{opacity:0;transform:translateY(40px);transition:all .8s}.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s}.reveal.visible{opacity:1;transform:translateY(0)}
 
-/* ===== 手机端适配 ===== */
 @media(max-width:768px){
-.navbar{padding:0 16px;height:60px}
-.logo{font-size:1.3rem}
+.navbar{padding:0 12px}
+.logo{font-size:1.25rem}
 .hamburger{display:block}
-.nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:rgba(255,253,245,.98);backdrop-filter:blur(20px);flex-direction:column;padding:16px;gap:4px;box-shadow:0 8px 30px rgba(93,78,55,.1)}
+.nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:rgba(255,253,245,.98);backdrop-filter:blur(20px);flex-direction:column;padding:12px;gap:2px;box-shadow:0 8px 30px rgba(93,78,55,.1)}
 .nav-links.open{display:flex}
-.nav-links a{padding:14px 20px;border-radius:16px;font-size:.95rem;flex-direction:row;gap:8px}
-.nav-links a .nen{font-size:.78rem}
-.hero{padding:90px 20px 50px}
-.hero-title{font-size:2.8rem}
-.hero-slogan{font-size:1.05rem}
-.hero-slogan-en{font-size:.9rem;margin-bottom:25px}
-.wbox{padding:20px 22px}
-.wcn{font-size:1rem}
-.hero-cta{padding:14px 30px;font-size:1rem}
-section{padding:50px 16px}
-.shd h2{font-size:1.8rem}
-.shd .en{font-size:.95rem}
-.agrid{grid-template-columns:1fr;gap:20px}
-.ggrid{grid-template-columns:1fr;gap:18px}
-.gc{padding:24px 20px}
-.gc .gi{font-size:2.5rem}
-.gc .gt{font-size:1.1rem}
-.bday{padding:25px 18px;margin:30px auto 0}
-.sbs{max-width:100%}
-.bacts{gap:8px}
-.bbtn{padding:10px 16px;font-size:.82rem}
-.abox{flex-direction:column;gap:28px}
-.aav{width:160px;height:160px}
-.atxt h2{font-size:1.8rem}
-.atxt p{font-size:.92rem}
-.mbox{padding:24px 20px;width:95%;border-radius:20px}
-.compose{padding:20px}
-.seek-area{height:160px}
-.outfit-grid span{font-size:1.4rem}
-.mg{grid-template-columns:repeat(4,1fr);gap:4px}
-.mc{font-size:1.1rem}
-.music-playlist{max-height:140px}
-}
-
-@media(max-width:380px){
-.hero-title{font-size:2.2rem}
+.nav-links a{padding:12px 16px;border-radius:14px;font-size:.92rem;flex-direction:row;gap:6px}
+.hero-title{font-size:2.5rem}
+.hero-slogan{font-size:1rem}
+section{padding:40px 12px}
+.shd h2{font-size:1.6rem}
+.agrid{grid-template-columns:1fr}
 .ggrid{grid-template-columns:1fr}
-.gc{padding:20px 16px}
-.bbtn{padding:8px 12px;font-size:.78rem}
+.gc{padding:22px 18px}
+.bday{padding:24px 16px}
+.bacts{gap:6px}
+.bbtn{padding:8px 14px;font-size:.8rem}
+.abox{flex-direction:column;gap:24px}
+.aav{width:150px;height:150px}
+.atxt h2{font-size:1.6rem}
+.mbox{padding:22px 18px;width:96%}
+}
+@media(max-width:380px){
+.hero-title{font-size:2rem}
+.gc{padding:18px 14px}
+.bbtn{padding:7px 11px;font-size:.76rem}
 }
 </style>
 </head>
 <body>
 
 <nav class="navbar">
-<a href="#home" class="logo"><span>🐻</span>Bearland</a>
-<button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')"><i class="fas fa-bars"></i></button>
-<ul class="nav-links">
-<li><a href="#home" class="active" onclick="closeNav()"><span>主页</span><span class="nen">Home</span></a></li>
-<li><a href="#theater" onclick="closeNav()"><span>故事剧院</span><span class="nen">Theater</span></a></li>
-<li><a href="#games" onclick="closeNav()"><span>互动岛</span><span class="nen">Games</span></a></li>
-<li><a href="#community" onclick="closeNav()"><span>社区</span><span class="nen">Community</span></a></li>
-<li><a href="#about" onclick="closeNav()"><span>关于</span><span class="nen">About</span></a></li>
+<a href="#home" class="logo">🐻 Bearland</a>
+<button class="hamburger" id="hamBtn">☰</button>
+<ul class="nav-links" id="navLinks">
+<li><a href="#home" class="active">主页 <span class="nen">Home</span></a></li>
+<li><a href="#theater">故事剧院 <span class="nen">Theater</span></a></li>
+<li><a href="#games">互动岛 <span class="nen">Games</span></a></li>
+<li><a href="#community">社区 <span class="nen">Community</span></a></li>
+<li><a href="#about">关于 <span class="nen">About</span></a></li>
 </ul>
 </nav>
 
@@ -248,8 +214,8 @@ section{padding:50px 16px}
 <h1 class="hero-title">Bearland</h1>
 <div class="hero-slogan">每一只小熊，都在等一个懂它的人</div>
 <div class="hero-slogan-en">Every bear is waiting for someone who understands.</div>
-<div class="wbadge" onclick="doWhisper()">🌟 倾听小熊低语</div>
-<div class="wbox" onclick="doWhisper()">
+<div class="wbadge" id="wbBtn">🌟 倾听小熊低语</div>
+<div class="wbox" id="wbBox">
 <div class="wcn" id="wCN">在 Bearland，你要相信美好的事总会发生。</div>
 <div class="wen" id="wEN">In Bearland, believe good things happen.</div>
 </div>
@@ -261,67 +227,67 @@ section{padding:50px 16px}
 <div class="agrid" id="albumGrid"></div>
 </section>
 
-<div class="modal" id="upM"><div class="mbox"><button class="mx" onclick="closeM('upM')">&times;</button><h3>📸 添加新内容</h3>
+<div class="modal" id="upM"><div class="mbox"><button class="mx" id="upMX">&times;</button><h3>📸 添加新内容</h3>
 <div class="fg"><label>标题</label><input type="text" id="upT" placeholder="故事名称..."></div>
 <div class="fg"><label>英文标题</label><input type="text" id="upTE" placeholder="English title..."></div>
 <div class="fg"><label>描述</label><textarea id="upD" placeholder="记录温暖的瞬间..."></textarea></div>
 <div class="fg"><label>上传图片/视频</label>
-<div class="uz" onclick="document.getElementById('upFile').click()"><i class="fas fa-cloud-upload-alt"></i><div>点击上传图片或视频</div><small style="opacity:.6">支持 jpg, png, gif, mp4, webm</small></div>
-<input type="file" id="upFile" accept="image/*,video/*" style="display:none" onchange="previewFile(this)">
+<div class="uz" id="uzBtn"><i class="fas fa-cloud-upload-alt"></i><div>点击上传图片或视频</div><small style="opacity:.6">支持 jpg, png, gif, mp4, webm</small></div>
+<input type="file" id="upFile" accept="image/*,video/*" style="display:none">
 <div class="preview-box" id="previewBox"></div>
 </div>
-<button class="btnp" onclick="saveA()">✨ 保存</button></div></div>
+<button class="btnp" id="saveABtn">✨ 保存</button></div></div>
 
-<div class="modal" id="edM"><div class="mbox"><button class="mx" onclick="closeM('edM')">&times;</button><h3>✏️ 编辑</h3>
+<div class="modal" id="edM"><div class="mbox"><button class="mx" id="edMX">&times;</button><h3>✏️ 编辑</h3>
 <input type="hidden" id="edI">
 <div class="fg"><label>标题</label><input type="text" id="edT"></div>
 <div class="fg"><label>英文标题</label><input type="text" id="edTE"></div>
 <div class="fg"><label>描述</label><textarea id="edD"></textarea></div>
-<button class="btnp" onclick="updateA()">💾 保存修改</button></div></div>
+<button class="btnp" id="updateABtn">💾 保存修改</button></div></div>
 
-<div class="lb" id="lb"><img id="lbI" src=""><video id="lbV" controls style="display:none"></video></div>
+<div class="lb" id="lb"><img id="lbI" src="" style="display:none"><video id="lbV" controls style="display:none"></video></div>
 
 <section id="games" class="reveal">
 <div class="shd"><h2>🎡 趣味互动岛</h2><div class="en">Fun Interactive Island</div><div class="line"></div></div>
-<div class="ggrid">
+<div class="ggrid" id="gamesGrid">
 
-<div class="gc"><span class="gi">🫂</span><div class="gt">熊抱能量站</div><div class="gte">Bear Hug Station</div><p>获取温暖的小熊抱抱！</p><div class="gr" id="hug-r">点击获取今日熊抱～</div><button class="gbtn" onclick="doHug()">🤗 获取熊抱</button></div>
+<div class="gc"><span class="gi">🫂</span><div class="gt">熊抱能量站</div><div class="gte">Bear Hug Station</div><p>获取温暖的小熊抱抱！</p><div class="gr" id="hug-r">点击获取今日熊抱～</div><button class="gbtn" id="hugBtn">🤗 获取熊抱</button></div>
 
-<div class="gc"><span class="gi">📰</span><div class="gt">小熊趣闻</div><div class="gte">Bear Facts</div><p>了解关于熊的有趣知识！</p><div class="gr" id="fact-r">点击获取趣闻～</div><button class="gbtn" onclick="doFact()">📚 获取趣闻</button></div>
+<div class="gc"><span class="gi">📰</span><div class="gt">小熊趣闻</div><div class="gte">Bear Facts</div><p>了解关于熊的有趣知识！</p><div class="gr" id="fact-r">点击获取趣闻～</div><button class="gbtn" id="factBtn">📚 获取趣闻</button></div>
 
-<div class="gc"><span class="gi">🏷️</span><div class="gt">生成小熊名</div><div class="gte">Bear Name Generator</div><p>获取专属小熊名字！</p><div class="gr" id="name-r">等待生成...</div><button class="gbtn" onclick="doName()">✨ 生成名字</button></div>
+<div class="gc"><span class="gi">🏷️</span><div class="gt">生成小熊名</div><div class="gte">Bear Name Generator</div><p>获取专属小熊名字！</p><div class="gr" id="name-r">等待生成...</div><button class="gbtn" id="nameBtn">✨ 生成名字</button></div>
 
-<div class="gc"><span class="gi">👗</span><div class="gt">小熊穿搭秀</div><div class="gte">Bear Fashion Show</div><p>选一件单品给小熊穿上！</p><div id="outfit-picks" class="outfit-grid"></div><div class="gr" id="outfit-r">挑选搭配中...</div><button class="gbtn" onclick="bearOutfit()">🎀 随机穿搭</button></div>
+<div class="gc"><span class="gi">👗</span><div class="gt">小熊穿搭秀</div><div class="gte">Bear Fashion Show</div><p>选一件单品给小熊穿上！</p><div id="outfit-picks" class="outfit-grid"></div><div class="gr" id="outfit-r">挑选搭配中...</div><button class="gbtn" id="outfitBtn">🎀 随机穿搭</button></div>
 
-<div class="gc"><span class="gi">🎋</span><div class="gt">熊熊签筒</div><div class="gte">Fortune Sticks</div><p>抽签看今日运势！</p><div class="gr" id="fortune-r">摇一摇签筒...</div><button class="gbtn" onclick="doFortune()">🎋 抽签</button></div>
+<div class="gc"><span class="gi">🎋</span><div class="gt">熊熊签筒</div><div class="gte">Fortune Sticks</div><p>抽签看今日运势！</p><div class="gr" id="fortune-r">摇一摇签筒...</div><button class="gbtn" id="fortuneBtn">🎋 抽签</button></div>
 
-<div class="gc"><span class="gi">🎨</span><div class="gt">心情颜色</div><div class="gte">Mood Color</div><p>此刻你的心情是什么颜色呢？</p><div class="mood-circle" id="mood-circle"></div><div class="gr" id="mood-r">点击揭晓你的心情色彩...</div><button class="gbtn" onclick="doMoodColor()">🌈 揭晓心情色</button></div>
+<div class="gc"><span class="gi">🎨</span><div class="gt">心情颜色</div><div class="gte">Mood Color</div><p>此刻你的心情是什么颜色呢？</p><div class="mood-circle" id="mood-circle"></div><div class="gr" id="mood-r">点击揭晓你的心情色彩...</div><button class="gbtn" id="moodBtn">🌈 揭晓心情色</button></div>
 
 <div class="gc"><span class="gi">🎵</span><div class="gt">森林点唱机</div><div class="gte">Forest Jukebox</div>
-<div style="font-size:1rem;margin-bottom:8px"><span id="np-cn" style="font-weight:700">未选择曲目</span><br><span id="np-en" style="font-size:.82rem;color:var(--soft)">No track selected</span></div>
-<audio id="forest-audio" controls style="width:100%;margin:10px 0"></audio>
+<div style="font-size:.95rem;margin-bottom:6px"><span id="np-cn" style="font-weight:700">未选择曲目</span><br><span id="np-en" style="font-size:.8rem;color:var(--soft)">No track selected</span></div>
+<audio id="forest-audio" controls style="width:100%;margin:8px 0"></audio>
 <div class="music-playlist" id="music-playlist"></div>
-<div class="upload-area" onclick="document.getElementById('music-upload').click()">
-<input type="file" id="music-upload" accept="audio/*" multiple style="display:none" onchange="handleMusicUpload(event)">
-<div>📤 点击上传曲目（可多选）<br><span style="font-size:.8rem;opacity:.6">Upload audio files</span></div>
+<div class="upload-area" id="musicUpBtn">
+<input type="file" id="music-upload" accept="audio/*" multiple style="display:none">
+📤 点击上传曲目（可多选）<br><span style="font-size:.78rem;opacity:.6">Upload audio files</span>
 </div></div>
 
-<div class="gc"><span class="gi">🎭</span><div class="gt">猜猜心情</div><div class="gte">Mood Quiz</div><p>猜猜小熊在想什么？</p><div class="gr" id="guess-r">点击看看...</div><button class="gbtn" onclick="doGuess()">🔮 猜一猜</button></div>
+<div class="gc"><span class="gi">🎭</span><div class="gt">猜猜心情</div><div class="gte">Mood Quiz</div><p>猜猜小熊在想什么？</p><div class="gr" id="guess-r">点击看看...</div><button class="gbtn" id="guessBtn">🔮 猜一猜</button></div>
 
-<div class="gc"><span class="gi">🐻</span><div class="gt">翻译官</div><div class="gte">Bear Translator</div><input class="ginp" id="trans-i" placeholder="输入人类语言..."><div class="gr" id="trans-r">翻译成熊语...</div><button class="gbtn" onclick="doTrans()">🐻 翻译</button></div>
+<div class="gc"><span class="gi">🐻</span><div class="gt">翻译官</div><div class="gte">Bear Translator</div><input class="ginp" id="trans-i" placeholder="输入人类语言..."><div class="gr" id="trans-r">翻译成熊语...</div><button class="gbtn" id="transBtn">🐻 翻译</button></div>
 
-<div class="gc"><span class="gi" id="gift-icon" style="cursor:pointer;font-size:3.5rem" onclick="doGift()">🎁</span><div class="gt">惊喜盒子</div><div class="gte">Gift Box</div><p>点击盒子看惊喜！</p><div class="gr" id="gift-r">摇一摇，开一开～</div></div>
+<div class="gc"><span class="gi" id="gift-icon" style="cursor:pointer;font-size:3rem">🎁</span><div class="gt">惊喜盒子</div><div class="gte">Gift Box</div><p>点击盒子看惊喜！</p><div class="gr" id="gift-r">摇一摇，开一开～</div></div>
 
-<div class="gc"><span class="gi">🏃</span><div class="gt">捕捉小快闪</div><div class="gte">Catch the Bear!</div><div class="seek-area" id="seekArea"><span id="targetBear" class="moving-bear" onclick="catchBear()">🐻</span></div><div class="gr">抓到次数: <span id="seekScore">0</span></div></div>
+<div class="gc"><span class="gi">🏃</span><div class="gt">捕捉小快闪</div><div class="gte">Catch the Bear!</div><div class="seek-area" id="seekArea"><span id="targetBear" class="moving-bear">🐻</span></div><div class="gr">抓到次数: <span id="seekScore">0</span></div></div>
 
-<div class="gc"><span class="gi">🃏</span><div class="gt">记忆翻牌</div><div class="gte">Memory Match</div><div class="mg" id="mem-g"></div><div class="gr" id="mem-r">翻牌次数: 0</div><button class="gbtn" onclick="resetMem()">🔄 重新开始</button></div>
+<div class="gc"><span class="gi">🃏</span><div class="gt">记忆翻牌</div><div class="gte">Memory Match</div><div class="mg" id="mem-g"></div><div class="gr" id="mem-r">翻牌次数: 0</div><button class="gbtn" id="memBtn">🔄 重新开始</button></div>
 
-<div class="gc"><span class="gi">❓</span><div class="gt">小熊问答</div><div class="gte">Bear Quiz</div><div class="gr" id="quiz-q">点击出题！</div><div id="quiz-o" style="margin:10px 0"></div><button class="gbtn" onclick="doQuiz()">📝 出题</button></div>
+<div class="gc"><span class="gi">❓</span><div class="gt">小熊问答</div><div class="gte">Bear Quiz</div><div class="gr" id="quiz-q">点击出题！</div><div id="quiz-o" style="margin:8px 0"></div><button class="gbtn" id="quizBtn">📝 出题</button></div>
 
 </div>
 
 <div class="bday reveal">
-<div class="shd" style="margin-bottom:30px"><h2>🐻 小贝尔的一天</h2><div class="en">A Day with Bear</div><div class="line"></div></div>
+<div class="shd" style="margin-bottom:24px"><h2>🐻 小贝尔的一天</h2><div class="en">A Day with Bear</div><div class="line"></div></div>
 <span class="ba-icon" id="bearAv">🧸</span>
 <div class="sbs">
 <div class="sb"><label><span>🍯 能量</span><span id="eV">80</span></label><div class="bt"><div class="bf en" id="eB" style="width:80%"></div></div></div>
@@ -329,19 +295,19 @@ section{padding:50px 16px}
 <div class="sb"><label><span>🛁 清洁</span><span id="cV">60</span></label><div class="bt"><div class="bf cl" id="cB" style="width:60%"></div></div></div>
 </div>
 <div class="bstat" id="bearSt"><div>小贝尔正在等你陪它玩耍～</div><div class="se">Bear is waiting for you to play~</div></div>
-<div class="bacts">
-<button class="bbtn b1" onclick="bearDo('eat')">🍯 吃蜂蜜</button>
-<button class="bbtn b2" onclick="bearDo('play')">🎾 玩球</button>
-<button class="bbtn b3" onclick="bearDo('swim')">🏊 游泳</button>
-<button class="bbtn b4" onclick="bearDo('sleep')">💤 睡觉</button>
-<button class="bbtn b5" onclick="bearDo('read')">📖 读书</button>
-<button class="bbtn b6" onclick="bearDo('music')">🎵 听音乐</button>
-<button class="bbtn b7" onclick="bearDo('cook')">🍳 做饭</button>
-<button class="bbtn b8" onclick="bearDo('game')">🎮 游戏</button>
-<button class="bbtn b9" onclick="bearDo('explore')">🌍 探险</button>
-<button class="bbtn b1" onclick="bearDo('hug')">🫂 拥抱</button>
-<button class="bbtn b6" onclick="bearDo('dance')">💃 跳舞</button>
-<button class="bbtn b7" onclick="bearDo('fish')">🎣 钓鱼</button>
+<div class="bacts" id="bearActs">
+<button class="bbtn b1" data-act="eat">🍯 吃蜂蜜</button>
+<button class="bbtn b2" data-act="play">🎾 玩球</button>
+<button class="bbtn b3" data-act="swim">🏊 游泳</button>
+<button class="bbtn b4" data-act="sleep">💤 睡觉</button>
+<button class="bbtn b5" data-act="read">📖 读书</button>
+<button class="bbtn b6" data-act="music">🎵 听音乐</button>
+<button class="bbtn b7" data-act="cook">🍳 做饭</button>
+<button class="bbtn b8" data-act="game">🎮 游戏</button>
+<button class="bbtn b9" data-act="explore">🌍 探险</button>
+<button class="bbtn b1" data-act="hug">🫂 拥抱</button>
+<button class="bbtn b6" data-act="dance">💃 跳舞</button>
+<button class="bbtn b7" data-act="fish">🎣 钓鱼</button>
 </div>
 </div>
 </section>
@@ -352,7 +318,7 @@ section{padding:50px 16px}
 <div class="compose">
 <input type="text" id="postName" placeholder="你的昵称 🧸" style="border-radius:50px;min-height:auto">
 <textarea id="postIn" placeholder="分享你和小熊的故事..."></textarea>
-<div class="cra"><button class="btnp" style="width:auto;padding:12px 30px;font-size:.9rem" onclick="pubPost()">发布</button></div>
+<div class="cra"><button class="btnp" style="width:auto;padding:10px 26px;font-size:.88rem" id="pubBtn">发布</button></div>
 </div>
 <div id="postsBox"></div>
 </div>
@@ -361,11 +327,11 @@ section{padding:50px 16px}
 <section id="about" class="reveal">
 <div class="shd"><h2>💛 关于守护者</h2><div class="en">About the Guardian</div><div class="line"></div></div>
 <div class="abox">
-<div class="aav" onclick="document.getElementById('avatarUp').click()">
+<div class="aav" id="avatarDiv">
 <img id="aboutAv" src="https://images.unsplash.com/photo-1607274134639-91c6287311e6?auto=format&fit=crop&w=400" alt="Casey">
 <div class="avo"><i class="fas fa-camera"></i></div>
 </div>
-<input type="file" id="avatarUp" accept="image/*" style="display:none" onchange="upAvatar(this)">
+<input type="file" id="avatarUp" accept="image/*" style="display:none">
 <div class="atxt">
 <h2>Casey</h2>
 <div class="ae">Guardian of Bearland</div>
@@ -383,15 +349,20 @@ section{padding:50px 16px}
 </footer>
 
 <script>
-const $=id=>document.getElementById(id);
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id)};
 function pick(a){return a[Math.floor(Math.random()*a.length)]}
-function openM(id){$(id).classList.add('show')}
-function closeM(id){$(id).classList.remove('show')}
-function closeNav(){document.querySelector('.nav-links').classList.remove('open')}
-document.querySelectorAll('.reveal').forEach(el=>{new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1}).observe(el)});
-window.addEventListener('scroll',()=>{let c='home';document.querySelectorAll('section[id]').forEach(s=>{if(scrollY>=s.offsetTop-100)c=s.id});document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c))});
 
-const LIB={
+/* ===== 导航 ===== */
+$('hamBtn').addEventListener('click',function(){$('navLinks').classList.toggle('open')});
+function closeNav(){$('navLinks').classList.remove('open')}
+document.querySelectorAll('#navLinks a').forEach(function(a){a.addEventListener('click',closeNav)});
+document.querySelectorAll('.reveal').forEach(function(el){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1}).observe(el)});
+window.addEventListener('scroll',function(){var c='home';document.querySelectorAll('section[id]').forEach(function(s){if(window.scrollY>=s.offsetTop-100)c=s.id});document.querySelectorAll('#navLinks a').forEach(function(a){if(a.getAttribute('href')==='#'+c)a.classList.add('active');else a.classList.remove('active')})});
+
+/* ===== 数据库 ===== */
+var LIB={
 whispers:[
 ["在 Bearland，你要相信美好的事总会发生。","In Bearland, believe good things happen."],
 ["不管世界如何，这里永远有你的位子。","No matter what, there's a seat for you here."],
@@ -406,46 +377,38 @@ whispers:[
 ["你值得世界上所有柔软的拥抱。","You deserve all the soft hugs in the world."],
 ["做一个像小熊一样温暖的人。","Be a warm person, just like a bear."],
 ["你比你想象中更勇敢。","You're braver than you think."],
-["拥抱是不需要理由的。","Hugs don't need a reason."],
 ["困难是暂时的，蜂蜜是永远的。","Hardship is temporary; honey is forever."],
-["小熊永远不会评判你。","Bears will never judge you."],
-["你今天做得已经很好了。","You've done so well today."],
 ["一切都会好起来的，小熊保证。","Everything will be okay; the bear promises."],
 ["别急，好事正在路上。","Don't rush; good things are on their way."],
 ["Bearland的大门永远为你敞开。","Bearland's doors are always open for you."],
 ["今天的风很温柔，像小熊的呼吸。","The breeze today is gentle, like a bear's breath."],
 ["你来了，这里就更温暖了。","You're here, and it just got warmer."],
-["晚安，愿你梦里全是蜂蜜和星光。","Good night; may your dreams be full of honey and starlight."],
-["柔软不是脆弱，是一种力量。","Softness isn't weakness; it's a strength."],
 ["小熊抱抱，什么烦恼都没了。","A bear hug makes all worries disappear."]
 ],
-facts:["北极熊的皮肤其实是黑色的，毛发是透明的。","考拉每天睡眠长达22小时。","大熊猫每天要花14小时进食。","棕熊会在瀑布边精准捕捉鲑鱼。","泰迪熊的名字源于罗斯福总统。","马来熊是最小的熊种。","眼镜熊是南美唯一的熊种。","北极熊可以连续游泳数百公里。","熊的嗅觉比狗灵敏7倍以上。","帕丁顿熊来自秘鲁。","小熊维尼源于一只真实的黑熊。","灰熊时速可达55公里。","熊冬眠时心率从40降到8。","大熊猫古称'食铁兽'。","新生大熊猫只有巴掌大。","帕丁顿熊最爱橘子果酱。","全世界共有8种熊类。","最古老的泰迪熊超过120岁。","熊掌的指纹和人类一样独特。","北极熊是最大的陆地食肉动物。"],
+facts:["北极熊的皮肤其实是黑色的，毛发是透明的。","考拉每天睡眠长达22小时。","大熊猫每天要花14小时进食。","棕熊会在瀑布边精准捕捉鲑鱼。","泰迪熊的名字源于罗斯福总统。","马来熊是最小的熊种。","眼镜熊是南美唯一的熊种。","北极熊可以连续游泳数百公里。","熊的嗅觉比狗灵敏7倍以上。","帕丁顿熊来自秘鲁。","小熊维尼源于一只真实的黑熊。","灰熊时速可达55公里。","熊冬眠时心率从40降到8。","大熊猫古称食铁兽。","新生大熊猫只有巴掌大。","帕丁顿熊最爱橘子果酱。","全世界共有8种熊类。","最古老的泰迪熊超过120岁。","熊掌的指纹和人类一样独特。","北极熊是最大的陆地食肉动物。"],
 bearNames:["蜂蜜谷的棉花糖","月光下的蓝莓酱","晨雾中的焦糖饼","星河边的奶油泡芙","暖阳里的橘子酱","微风中的薄荷糖","花田里的草莓卷","雪山上的热可可","森林深处的松果","溪水旁的肉桂卷","云朵上的香草冰","银河中的蜜糖果","春日里的樱花饼","夏夜中的萤火虫","秋叶下的栗子酱","冬炉旁的姜饼熊","彩虹末端的太妃糖","草地上的蒲公英","树洞里的小蜜蜂","瀑布旁的水蜜桃"],
-outfitItems:["🎩","🧢","👒","👑","🧣","🧤","🧥","👕","👔","👗","👘","🩱","👙","👚","🎒","👞","👟","🥾","👠","👡","👢","💍","💎","👓","🕶️","🎀","🪄"],
-outfitEvals:["✨ 绝了！时尚界的小熊顶流！","🌟 这搭配太有品味了！","💛 温暖又有型，满分！","🎀 可爱到犯规！","🔥 哇哦，潮到不行！","💎 高贵优雅！","🧸 可爱值爆表！","🌸 清新脱俗！","☁️ 软绵绵的像棉花糖！","🌻 阳光灿烂！","❄️ 冬日暖熊！"],
+outfitItems:["🎩","🧢","👒","👑","🧣","🧤","🧥","👕","👔","👗","👘","👚","🎒","👞","👟","🥾","👠","👡","👢","💍","💎","👓","🕶️","🎀","🪄"],
+outfitEvals:["✨ 绝了！时尚界的小熊顶流！","🌟 这搭配太有品味了！","💛 温暖又有型，满分！","🎀 可爱到犯规！","🔥 哇哦，潮到不行！","💎 高贵优雅！","🧸 可爱值爆表！","🌸 清新脱俗！","☁️ 软绵绵的像棉花糖！","🌻 阳光灿烂！"],
 fortunes:["🏮 上上签：今天会收到意想不到的温暖惊喜。","🌸 上吉签：有人正在默默想念你。","🍀 中吉签：一杯热可可能治愈一切疲惫。","🌈 小吉签：保持微笑，好事下午降临。","🌙 吉签：今晚的梦境会特别温柔。","🍯 大吉签：你的善良正在积攒好运。","⭐ 上上签：珍贵的缘分即将来临。","🌻 中吉签：今天适合做想做的事。","💫 上吉签：你说的话会温暖到一个人。","🕯️ 大吉签：今天是重新开始的好日子。"],
 moodColors:[
-{color:"#FFB300",cn:"🌻 金黄色 —— 阳光明媚",en:"Golden — Sunny and Radiant",desc:"你现在充满能量，像阳光照耀大地一样温暖明亮！"},
-{color:"#FF6B6B",cn:"🌹 珊瑚红 —— 热情洋溢",en:"Coral Red — Passionate",desc:"你的内心正在燃烧，充满热情和对生活的渴望！"},
-{color:"#74B9FF",cn:"🌊 天空蓝 —— 平静辽阔",en:"Sky Blue — Calm and Vast",desc:"你像大海一样平静，内心宽广而安宁。"},
-{color:"#A29BFE",cn:"🔮 薰衣草紫 —— 梦幻温柔",en:"Lavender — Dreamy and Gentle",desc:"你的心灵正在一个温柔的梦境中漫游～"},
-{color:"#55EFC4",cn:"🍃 薄荷绿 —— 清新治愈",en:"Mint Green — Fresh and Healing",desc:"你现在感觉清爽自在，一切都是新的开始！"},
-{color:"#FDCB6E",cn:"🍯 蜂蜜黄 —— 甜蜜幸福",en:"Honey Yellow — Sweet Happiness",desc:"甜蜜的幸福感正围绕着你，像蜂蜜一样～"},
-{color:"#E17055",cn:"🍁 枫叶橙 —— 温暖怀旧",en:"Maple Orange — Warm Nostalgia",desc:"你的心中有温暖的回忆正在泛起涟漪。"},
-{color:"#FD79A8",cn:"🌸 樱花粉 —— 浪漫甜美",en:"Sakura Pink — Romantic",desc:"浪漫的气息环绕着你，心动的感觉～"},
-{color:"#00B894",cn:"🌲 森林绿 —— 沉稳安定",en:"Forest Green — Grounded",desc:"你像一棵大树一样沉稳，根基扎实。"},
-{color:"#636E72",cn:"🌫️ 雾灰色 —— 需要休息",en:"Fog Grey — Need Rest",desc:"累了就休息吧，小熊守在你身边～"},
-{color:"#6C5CE7",cn:"💜 星空紫 —— 充满灵感",en:"Starry Purple — Inspired",desc:"灵感正在向你涌来，创意满满！"},
-{color:"#FAB1A0",cn:"🧁 奶油杏 —— 柔软安心",en:"Cream Apricot — Soft Comfort",desc:"你正被温柔包裹，安心自在。"},
-{color:"#81ECEC",cn:"💎 水晶蓝 —— 清澈透明",en:"Crystal Blue — Clear Mind",desc:"你的思绪像水晶一样清澈透明。"},
-{color:"#FFEAA7",cn:"🌟 柠檬黄 —— 活力四射",en:"Lemon Yellow — Energetic",desc:"满满的活力！今天什么都能做到！"},
-{color:"#DFE6E9",cn:"☁️ 云朵白 —— 纯净无忧",en:"Cloud White — Pure and Free",desc:"心灵像云朵一样轻盈自在。"},
-{color:"#E84393",cn:"💗 玫红色 —— 热烈真挚",en:"Magenta — Sincere Love",desc:"你的心中有真挚的情感在流动。"},
-{color:"#00CEC9",cn:"🐬 海豚青 —— 自由畅游",en:"Dolphin Teal — Free Spirit",desc:"你渴望自由，像海豚一样畅游！"},
-{color:"#B2BEC3",cn:"🪨 岩石灰 —— 坚韧不拔",en:"Rock Grey — Resilient",desc:"你比想象中更坚强，稳如磐石。"}
+{color:"#FFB300",cn:"🌻 金黄色 —— 阳光明媚",en:"Golden — Sunny",desc:"你现在充满能量！"},
+{color:"#FF6B6B",cn:"🌹 珊瑚红 —— 热情洋溢",en:"Coral Red — Passionate",desc:"内心充满热情！"},
+{color:"#74B9FF",cn:"🌊 天空蓝 —— 平静辽阔",en:"Sky Blue — Calm",desc:"内心宽广安宁。"},
+{color:"#A29BFE",cn:"🔮 薰衣草紫 —— 梦幻温柔",en:"Lavender — Dreamy",desc:"在温柔的梦境中～"},
+{color:"#55EFC4",cn:"🍃 薄荷绿 —— 清新治愈",en:"Mint Green — Fresh",desc:"清爽自在！"},
+{color:"#FDCB6E",cn:"🍯 蜂蜜黄 —— 甜蜜幸福",en:"Honey Yellow — Sweet",desc:"甜蜜幸福感围绕你～"},
+{color:"#E17055",cn:"🍁 枫叶橙 —— 温暖怀旧",en:"Maple Orange — Nostalgic",desc:"温暖的回忆泛起涟漪。"},
+{color:"#FD79A8",cn:"🌸 樱花粉 —— 浪漫甜美",en:"Sakura Pink — Romantic",desc:"浪漫的气息～"},
+{color:"#00B894",cn:"🌲 森林绿 —— 沉稳安定",en:"Forest Green — Grounded",desc:"沉稳如大树。"},
+{color:"#636E72",cn:"🌫️ 雾灰色 —— 需要休息",en:"Fog Grey — Need Rest",desc:"累了就休息吧～"},
+{color:"#6C5CE7",cn:"💜 星空紫 —— 充满灵感",en:"Starry Purple — Inspired",desc:"灵感涌来！"},
+{color:"#FAB1A0",cn:"🧁 奶油杏 —— 柔软安心",en:"Cream Apricot — Comfort",desc:"被温柔包裹。"},
+{color:"#FFEAA7",cn:"🌟 柠檬黄 —— 活力四射",en:"Lemon — Energetic",desc:"满满活力！"},
+{color:"#E84393",cn:"💗 玫红色 —— 热烈真挚",en:"Magenta — Sincere",desc:"真挚情感流动。"},
+{color:"#00CEC9",cn:"🐬 海豚青 —— 自由畅游",en:"Teal — Free",desc:"渴望自由！"}
 ],
-hugs:["🫂 小熊从背后轻轻抱住了你：辛苦啦！","🧸 一只毛茸茸的小熊给你超级大拥抱！","🐻 小熊把最软的肚子贴在你身上～","💛 蜂蜜味的拥抱，甜甜的一天！","🌟 小熊用力抱住你：你值得被疼爱！","🤗 熊抱能量已充满！元气满满！","🍯 小熊说：这个拥抱是蜂蜜味的！","✨ 来自Bearland的特快拥抱！已签收～","🌈 彩虹味的熊抱！一整天开心！","💫 小熊拍拍你的背：一切都会好的。","🧣 小熊围着围巾抱住你，温暖从头到脚。","🌸 花瓣飘落的浪漫拥抱～","⭐ 星星味的熊抱，闪闪发光！","🎵 小熊哼着歌抱住你，世界安静了。","❄️ 冬天的熊抱，比暖炉还暖！","🌻 向日葵味的拥抱，充满希望！","💌 小熊说：这个拥抱是情书，你收好。","🧁 奶油味的拥抱，甜到心里。","📖 故事书里走出来的拥抱。","🏠 回家一样温暖的拥抱，安心了。"],
-guessMoods:[["小熊超级开心，吃了最爱的蜂蜜！🍯","Bear is super happy!"],["小熊有点困了💤","Bear is sleepy~"],["小熊在想念朋友...😢","Bear is missing a friend..."],["小熊期待一场冒险！✨","Bear is excited!"],["小熊觉得云朵像棉花糖☁️","Clouds look like marshmallows~"],["小熊闻到饼干香味🍪","Bear smells cookies~"],["小熊在偷偷写信给你💌","Bear is writing a letter~"],["小熊想吃火锅了🍲","Bear wants hot pot!"],["小熊在数星星⭐","Bear is counting stars~"],["小熊在哼歌🎵","Bear is humming a song~"]],
+hugs:["🫂 小熊从背后轻轻抱住了你：辛苦啦！","🧸 一只毛茸茸的小熊给你超级大拥抱！","🐻 小熊把最软的肚子贴在你身上～","💛 蜂蜜味的拥抱，甜甜的一天！","🌟 小熊用力抱住你：你值得被疼爱！","🤗 熊抱能量已充满！","🍯 这个拥抱是蜂蜜味的！","✨ 来自Bearland的特快拥抱！已签收～","🌈 彩虹味的熊抱！","💫 小熊拍拍你的背：一切都会好的。","🧣 小熊围着围巾抱住你。","🌸 花瓣飘落的浪漫拥抱～","⭐ 星星味的熊抱！","🎵 小熊哼着歌抱住你。","❄️ 冬天的熊抱，比暖炉还暖！","🌻 向日葵味的拥抱！","💌 这个拥抱是情书，你收好。","🧁 奶油味的拥抱。","📖 故事书里走出来的拥抱。","🏠 回家一样温暖的拥抱。"],
+guessMoods:[["小熊超级开心，吃了最爱的蜂蜜！🍯","Bear is super happy!"],["小熊有点困了💤","Bear is sleepy~"],["小熊在想念朋友...😢","Missing a friend..."],["小熊期待一场冒险！✨","Excited for adventure!"],["小熊觉得云朵像棉花糖☁️","Clouds look like marshmallows~"],["小熊闻到饼干香味🍪","Bear smells cookies~"],["小熊在偷偷写信给你💌","Writing a letter~"],["小熊想吃火锅了🍲","Wants hot pot!"],["小熊在数星星⭐","Counting stars~"],["小熊在哼歌🎵","Humming a song~"]],
 gifts:[{e:"🍯",cn:"一罐金色的蜂蜜！",en:"A jar of golden honey!"},{e:"🧣",cn:"一条温暖的围巾！",en:"A warm scarf!"},{e:"📖",cn:"一本故事书！",en:"A story book!"},{e:"🌸",cn:"一朵粉色小花！",en:"A pink flower!"},{e:"⭐",cn:"一颗闪闪的星星！",en:"A sparkling star!"},{e:"🍪",cn:"一块刚烤好的饼干！",en:"A freshly baked cookie!"},{e:"💌",cn:"一封小熊的信！",en:"A letter from bear!"},{e:"🌈",cn:"一道小彩虹！",en:"A tiny rainbow!"},{e:"🧁",cn:"一个纸杯蛋糕！",en:"A cupcake!"},{e:"🎈",cn:"一个心形气球！",en:"A heart balloon!"}],
 quizzes:[
 {q:"小熊最爱吃什么？",opts:["蜂蜜","辣椒","冰块"],ans:0},
@@ -462,201 +425,225 @@ quizzes:[
 {q:"熊的嗅觉比狗灵敏多少倍？",opts:["3倍","7倍","10倍"],ans:1},
 {q:"最小的熊种是？",opts:["北极熊","马来熊","棕熊"],ans:1},
 {q:"大熊猫每天吃多少小时？",opts:["6小时","10小时","14小时"],ans:2},
-{q:"泰迪熊是哪国发明的？",opts:["德国/美国","日本","英国"],ans:0},
 {q:"熊冬眠时心率降到多少？",opts:["20次","8次","15次"],ans:1},
 {q:"考拉一天睡多少小时？",opts:["12小时","18小时","22小时"],ans:2},
 {q:"灰熊最快时速？",opts:["30公里","55公里","80公里"],ans:1},
-{q:"北极熊是什么动物？",opts:["杂食动物","食肉动物","食草动物"],ans:1},
 {q:"新生大熊猫有多大？",opts:["巴掌大","足球大","西瓜大"],ans:0},
-{q:"哪种熊会爬树捕食？",opts:["马来熊","北极熊","灰熊"],ans:0},
-{q:"小熊维尼最好的朋友是？",opts:["小猪皮杰","跳跳虎","屹耳"],ans:0},
-{q:"熊掌有什么特征？",opts:["有蹼","指纹独特","会发光"],ans:1},
-{q:"最古老的泰迪熊多少岁？",opts:["80岁","100岁","120岁"],ans:2},
 {q:"眼镜熊生活在哪个大洲？",opts:["亚洲","南美洲","非洲"],ans:1},
-{q:"哪只熊最爱吃蜂蜜？",opts:["小熊维尼","帕丁顿","贝尔"],ans:0},
-{q:"熊冬眠时会不会喝水？",opts:["会","不会","偶尔会"],ans:1}
+{q:"最古老的泰迪熊多少岁？",opts:["80岁","100岁","120岁"],ans:2}
 ]
 };
 
-// ===== 低语 =====
-let wI=0;
-function doWhisper(){wI=(wI+1)%LIB.whispers.length;const w=LIB.whispers[wI];$('wCN').textContent=w[0];$('wEN').textContent=w[1]}
+/* ===== 低语 ===== */
+var wI=0;
+function doWhisper(){wI=(wI+1)%LIB.whispers.length;$('wCN').textContent=LIB.whispers[wI][0];$('wEN').textContent=LIB.whispers[wI][1]}
+$('wbBtn').addEventListener('click',doWhisper);
+$('wbBox').addEventListener('click',doWhisper);
 
-// ===== 故事剧院 =====
-let album=[];let uploadedFileData=null;let uploadedFileType=null;
-try{const saved=localStorage.getItem('bl_album');if(saved)album=JSON.parse(saved)}catch(e){album=[]}
-if(!album.length){
+/* ===== 故事剧院 ===== */
+var album=[];var uploadedFileData=null;var uploadedFileType=null;
+
+// 清除旧版可能损坏的数据
+try{var saved=localStorage.getItem('bl_album2');if(saved)album=JSON.parse(saved)}catch(e){album=[]}
+
+if(!album||!album.length){
 album=[
-{t:"🌿 吉福特熊",te:"Gift Bear",d:"在 Bearland 的每一个清晨，吉福特都会在长椅上留下一束带有露水的野花。",media:"emoji",emoji:"🧸",type:"emoji"},
-{t:"🧳 帕丁顿熊",te:"Bear Paddington",d:"他总是极具礼貌。只要一瓶橘子酱，就能告诉你什么是优雅的冒险。",media:"emoji",emoji:"🐻",type:"emoji"},
-{t:"🍯 蜜糖小熊",te:"Honey Bear",d:"每天傍晚，蜜糖小熊会坐在蜂蜜罐旁，给萤火虫讲星星的故事。",media:"emoji",emoji:"🍯",type:"emoji"}
-];saveAlbum()}
+{t:"🌿 吉福特熊",te:"Gift Bear",d:"在 Bearland 的每一个清晨，吉福特都会在长椅上留下一束带有露水的野花。",type:"emoji",emoji:"🧸"},
+{t:"🧳 帕丁顿熊",te:"Bear Paddington",d:"他总是极具礼貌。只要一瓶橘子果酱，就能告诉你什么是优雅的冒险。",type:"emoji",emoji:"🐻"},
+{t:"🍯 蜜糖小熊",te:"Honey Bear",d:"每天傍晚，蜜糖小熊会坐在蜂蜜罐旁，给萤火虫讲星星的故事。",type:"emoji",emoji:"🍯"}
+];
+saveAlbum();
+}
 
-function saveAlbum(){try{localStorage.setItem('bl_album',JSON.stringify(album))}catch(e){if(e.name==='QuotaExceededError')alert('存储空间已满，请删除一些内容后再试')}}
+function saveAlbum(){try{localStorage.setItem('bl_album2',JSON.stringify(album))}catch(e){}}
 
 function renderA(){
-const g=$('albumGrid');let h='';
-album.forEach((a,i)=>{
-let mediaHtml='';
-if(a.type==='video'){mediaHtml='<video class="cimg" src="'+a.media+'" controls></video>'}
-else if(a.type==='emoji'){mediaHtml='<div class="emoji-cover">'+(a.emoji||'🧸')+'</div>'}
-else{mediaHtml='<img class="cimg" src="'+a.media+'" onclick="openLB('+i+')">'}
-h+='<div class="acard">'+mediaHtml+'<div class="cbd"><h3>'+a.t+'</h3><div class="ten">'+(a.te||'')+'</div><p>'+a.d+'</p></div><div class="cact"><button class="abtn ed" onclick="editA('+i+')">✏️ 编辑</button><button class="abtn dl" onclick="delA('+i+')">🗑️ 删除</button></div></div>';
-});
-h+='<div class="addc" onclick="openM(\'upM\')"><i class="fas fa-plus-circle"></i><span>添加新内容</span></div>';
-g.innerHTML=h}
+var g=$('albumGrid');var h='';
+for(var i=0;i<album.length;i++){
+var a=album[i];
+var mediaHtml='';
+if(a.type==='video'){
+mediaHtml='<video class="cimg" src="'+a.media+'" controls></video>';
+}else if(a.type==='emoji'||!a.media){
+mediaHtml='<div class="emoji-cover">'+(a.emoji||'🧸')+'</div>';
+}else{
+mediaHtml='<img class="cimg" src="'+a.media+'" data-idx="'+i+'">';
+}
+h+='<div class="acard">'+mediaHtml+'<div class="cbd"><h3>'+a.t+'</h3><div class="ten">'+(a.te||'')+'</div><p>'+a.d+'</p></div><div class="cact"><button class="abtn ed" data-edit="'+i+'">✏️ 编辑</button><button class="abtn dl" data-del="'+i+'">🗑️ 删除</button></div></div>';
+}
+h+='<div class="addc" id="addCard"><i class="fas fa-plus-circle"></i><span>添加新内容</span></div>';
+g.innerHTML=h;
 
-function previewFile(inp){
+// 绑定事件
+var addCard=document.getElementById('addCard');
+if(addCard)addCard.addEventListener('click',function(){$('upM').classList.add('show')});
+g.querySelectorAll('[data-edit]').forEach(function(btn){btn.addEventListener('click',function(){editA(parseInt(this.getAttribute('data-edit')))})});
+g.querySelectorAll('[data-del]').forEach(function(btn){btn.addEventListener('click',function(){delA(parseInt(this.getAttribute('data-del')))})});
+g.querySelectorAll('.cimg').forEach(function(img){if(img.tagName==='IMG')img.addEventListener('click',function(){openLB(parseInt(this.getAttribute('data-idx')))})});
+}
+
+$('uzBtn').addEventListener('click',function(){$('upFile').click()});
+$('upFile').addEventListener('change',function(){
 uploadedFileData=null;uploadedFileType=null;
-const pb=$('previewBox');pb.innerHTML='';
-if(!inp.files||!inp.files[0])return;
-const f=inp.files[0];
-if(f.size>2*1024*1024){alert('文件超过2MB，建议压缩后上传');inp.value='';return}
-const r=new FileReader();
+$('previewBox').innerHTML='';
+if(!this.files||!this.files[0])return;
+var f=this.files[0];
+if(f.size>2*1024*1024){alert('文件超过2MB');this.value='';return}
+var r=new FileReader();
 r.onload=function(e){
 uploadedFileData=e.target.result;
-if(f.type.startsWith('video')){uploadedFileType='video';pb.innerHTML='<video src="'+uploadedFileData+'" controls style="max-height:150px;border-radius:10px"></video>'}
-else{uploadedFileType='image';pb.innerHTML='<img src="'+uploadedFileData+'" style="max-height:150px;border-radius:10px">'}
-};r.readAsDataURL(f)}
+if(f.type.indexOf('video')===0){uploadedFileType='video';$('previewBox').innerHTML='<video src="'+uploadedFileData+'" controls style="max-height:120px;border-radius:10px"></video>'}
+else{uploadedFileType='image';$('previewBox').innerHTML='<img src="'+uploadedFileData+'" style="max-height:120px;border-radius:10px">'}
+};r.readAsDataURL(f)});
 
-function saveA(){
-const t=$('upT').value.trim(),te=$('upTE').value.trim(),d=$('upD').value.trim();
+$('saveABtn').addEventListener('click',function(){
+var t=$('upT').value.trim(),te=$('upTE').value.trim(),d=$('upD').value.trim();
 if(!t){alert('请填写标题');return}
 if(!uploadedFileData){alert('请上传图片或视频');return}
-album.push({t,te,d,media:uploadedFileData,type:uploadedFileType||'image'});
-saveAlbum();closeM('upM');renderA();
-$('upT').value=$('upTE').value=$('upD').value='';$('previewBox').innerHTML='';$('upFile').value='';uploadedFileData=null;uploadedFileType=null}
+album.push({t:t,te:te,d:d,media:uploadedFileData,type:uploadedFileType||'image'});
+saveAlbum();$('upM').classList.remove('show');renderA();
+$('upT').value=$('upTE').value=$('upD').value='';$('previewBox').innerHTML='';$('upFile').value='';uploadedFileData=null;uploadedFileType=null;
+});
 
-function editA(i){openM('edM');$('edI').value=i;$('edT').value=album[i].t;$('edTE').value=album[i].te||'';$('edD').value=album[i].d}
-function updateA(){const i=+$('edI').value;album[i].t=$('edT').value.trim();album[i].te=$('edTE').value.trim();album[i].d=$('edD').value.trim();saveAlbum();closeM('edM');renderA()}
+$('upMX').addEventListener('click',function(){$('upM').classList.remove('show')});
+$('edMX').addEventListener('click',function(){$('edM').classList.remove('show')});
+
+function editA(i){$('edM').classList.add('show');$('edI').value=i;$('edT').value=album[i].t;$('edTE').value=album[i].te||'';$('edD').value=album[i].d}
+$('updateABtn').addEventListener('click',function(){var i=parseInt($('edI').value);album[i].t=$('edT').value.trim();album[i].te=$('edTE').value.trim();album[i].d=$('edD').value.trim();saveAlbum();$('edM').classList.remove('show');renderA()});
 function delA(i){if(confirm('确定删除？')){album.splice(i,1);saveAlbum();renderA()}}
 
 function openLB(i){
-const a=album[i];if(!a||a.type==='emoji')return;
+var a=album[i];if(!a||a.type==='emoji'||!a.media)return;
 if(a.type==='video'){$('lbI').style.display='none';$('lbV').style.display='block';$('lbV').src=a.media}
 else{$('lbV').style.display='none';$('lbI').style.display='block';$('lbI').src=a.media}
 $('lb').classList.add('show')}
-$('lb').onclick=function(){this.classList.remove('show');$('lbV').pause()};
+$('lb').addEventListener('click',function(){this.classList.remove('show');try{$('lbV').pause()}catch(e){}});
 renderA();
 
-// ===== 游戏 =====
-function doHug(){$('hug-r').innerHTML=pick(LIB.hugs)}
-function doFact(){$('fact-r').innerHTML='🐻 '+pick(LIB.facts)}
-function doName(){$('name-r').innerHTML='🏷️ <b>'+pick(LIB.bearNames)+'</b>'}
-function doFortune(){$('fortune-r').innerHTML=pick(LIB.fortunes)}
-function doGuess(){const m=pick(LIB.guessMoods);$('guess-r').innerHTML=m[0]+'<div class="ren">'+m[1]+'</div>'}
-function doGift(){const ic=$('gift-icon');ic.textContent='✨';const g=pick(LIB.gifts);setTimeout(()=>{ic.textContent=g.e;$('gift-r').innerHTML=g.cn+'<div class="ren">'+g.en+'</div>'},500);setTimeout(()=>{ic.textContent='🎁'},4000)}
+/* ===== 游戏按钮绑定 ===== */
+$('hugBtn').addEventListener('click',function(){$('hug-r').innerHTML=pick(LIB.hugs)});
+$('factBtn').addEventListener('click',function(){$('fact-r').innerHTML='🐻 '+pick(LIB.facts)});
+$('nameBtn').addEventListener('click',function(){$('name-r').innerHTML='🏷️ <b>'+pick(LIB.bearNames)+'</b>'});
+$('fortuneBtn').addEventListener('click',function(){$('fortune-r').innerHTML=pick(LIB.fortunes)});
+$('guessBtn').addEventListener('click',function(){var m=pick(LIB.guessMoods);$('guess-r').innerHTML=m[0]+'<div class="ren">'+m[1]+'</div>'});
+
+// 惊喜盒子
+$('gift-icon').addEventListener('click',function(){
+var ic=$('gift-icon');ic.textContent='✨';var g=pick(LIB.gifts);
+setTimeout(function(){ic.textContent=g.e;$('gift-r').innerHTML=g.cn+'<div class="ren">'+g.en+'</div>'},500);
+setTimeout(function(){ic.textContent='🎁'},4000)});
 
 // 翻译官
-function doTrans(){
-let t=$('trans-i').value.trim();
+$('transBtn').addEventListener('click',function(){
+var t=$('trans-i').value.trim();
 if(!t){$('trans-r').innerHTML='请输入点什么呀～🧸';return}
-const dict={'你好':'嗷呜嗷呜～🐾','我':'本熊🧸','你':'小人类👤','喜欢':'超级稀罕💕','爱':'最最最稀罕❤️','开心':'蹦蹦跳跳哒～🎉','谢谢':'摸摸头回蹭蹭🐾','晚安':'冬眠安安🌙💤','早上好':'熊晨好呜～🌞','再见':'挥挥熊掌拜拜👋','吃':'嗷呜嗷呜啃啃🍯','睡觉':'呼噜噜冬眠去💤','好':'嗷嗷好！','坏':'呜呜不喜欢😤','朋友':'同窝小伙伴🐻','家':'暖暖的树洞🏠','工作':'搬蜂蜜桶💪','学习':'翻翻森林百科📖','漂亮':'像蜂蜜一样闪亮✨','难过':'呜呜需要抱抱🥺','生气':'嗷——！炸毛了💢','冷':'抖抖抖要钻被窝❄️','热':'热得想跳河🏊','饿':'肚子咕噜噜🍯','困':'眼皮打架了💤','笑':'嘿嘿嘿露牙齿😁','哭':'呜呜呜鼻涕泡😢','跑':'四只脚飞起来🏃','走':'咚咚咚踩地板🐾','想':'脑袋里全是蜂蜜🧠','太棒了':'嗷嗷嗷嗷！🎊','加油':'熊掌拍拍给你力量！💪🐻','拜托':'熊眼汪汪求你啦🥺','好吃':'舔舔嘴巴还要！😋','下雨':'头顶举个大叶子🌿☔','太阳':'暖暖的照在毛上☀️','月亮':'夜空中最圆的饼干🌙'};
-const suffixes=['嗷呜！🐻','(甩甩尾巴)','(蹭蹭~)','(打了个哈欠)','(舔舔爪子)','(竖起耳朵)','(歪头看你)','(拍拍肚子)','(翻个肚皮)'];
-let r=t;for(const[k,v] of Object.entries(dict))r=r.replaceAll(k,v);
+var dict={'你好':'嗷呜嗷呜～🐾','我':'本熊🧸','你':'小人类👤','喜欢':'超级稀罕💕','爱':'最最最稀罕❤️','开心':'蹦蹦跳跳哒～🎉','谢谢':'摸摸头回蹭蹭🐾','晚安':'冬眠安安🌙💤','早上好':'熊晨好呜～🌞','再见':'挥挥熊掌拜拜👋','吃':'嗷呜嗷呜啃啃🍯','睡觉':'呼噜噜冬眠去💤','好':'嗷嗷好！','朋友':'同窝小伙伴🐻','家':'暖暖的树洞🏠','漂亮':'像蜂蜜一样闪亮✨','难过':'呜呜需要抱抱🥺','生气':'嗷——炸毛了💢','冷':'抖抖抖要钻被窝❄️','热':'热得想跳河🏊','饿':'肚子咕噜噜🍯','困':'眼皮打架了💤','笑':'嘿嘿嘿露牙齿😁','哭':'呜呜呜鼻涕泡😢','想':'脑袋里全是蜂蜜🧠','太棒了':'嗷嗷嗷嗷！🎊','加油':'熊掌拍拍给你力量！💪🐻','好吃':'舔舔嘴巴还要！😋'};
+var suffixes=['嗷呜！🐻','(甩甩尾巴)','(蹭蹭~)','(打了个哈欠)','(舔舔爪子)','(竖起耳朵)','(歪头看你)'];
+var r=t;for(var k in dict)if(dict.hasOwnProperty(k))r=r.split(k).join(dict[k]);
 r+=' '+pick(suffixes);
-$('trans-r').innerHTML='🐻 熊语: '+r}
+$('trans-r').innerHTML='🐻 熊语: '+r});
 
 // 心情颜色
-function doMoodColor(){const m=pick(LIB.moodColors);$('mood-circle').style.background=m.color;$('mood-circle').style.boxShadow='0 4px 30px '+m.color+'66';$('mood-r').innerHTML='<b>'+m.cn+'</b><br><span class="ren">'+m.en+'</span><br><span style="font-size:.9rem;margin-top:6px;display:inline-block">'+m.desc+'</span>'}
+$('moodBtn').addEventListener('click',function(){var m=pick(LIB.moodColors);$('mood-circle').style.background=m.color;$('mood-circle').style.boxShadow='0 4px 30px '+m.color+'66';$('mood-r').innerHTML='<b>'+m.cn+'</b><br><span class="ren">'+m.en+'</span><br><span style="font-size:.88rem;display:inline-block;margin-top:4px">'+m.desc+'</span>'});
 
 // 穿搭秀
-(function(){const c=$('outfit-picks');LIB.outfitItems.forEach(item=>{const s=document.createElement('span');s.textContent=item;s.onclick=function(){$('outfit-r').innerHTML='🧸 + '+item+' = '+pick(LIB.outfitEvals)};c.appendChild(s)})})();
-function bearOutfit(){const r=[];for(let i=0;i<3;i++)r.push(pick(LIB.outfitItems));$('outfit-r').innerHTML='🧸 今日搭配: '+r.join(' ')+'<br>'+pick(LIB.outfitEvals)}
+(function(){var c=$('outfit-picks');LIB.outfitItems.forEach(function(item){var s=document.createElement('span');s.textContent=item;s.addEventListener('click',function(){$('outfit-r').innerHTML='🧸 + '+item+' = '+pick(LIB.outfitEvals)});c.appendChild(s)})})();
+$('outfitBtn').addEventListener('click',function(){var r=[];for(var i=0;i<3;i++)r.push(pick(LIB.outfitItems));$('outfit-r').innerHTML='🧸 今日搭配: '+r.join(' ')+'<br>'+pick(LIB.outfitEvals)});
 
-// ===== 森林点唱机 =====
-let playlist=[];
-try{const saved=localStorage.getItem('bl_music');if(saved)playlist=JSON.parse(saved)}catch(e){playlist=[]}
-
-function savePlaylist(){try{localStorage.setItem('bl_music',JSON.stringify(playlist))}catch(e){if(e.name==='QuotaExceededError')alert('存储空间已满，请删除一些曲目后再上传')}}
-
+// 森林点唱机
+var playlist=[];
+try{var sv=localStorage.getItem('bl_music2');if(sv)playlist=JSON.parse(sv)}catch(e){playlist=[]}
+function savePlaylist(){try{localStorage.setItem('bl_music2',JSON.stringify(playlist))}catch(e){}}
 function renderPlaylist(){
-const el=$('music-playlist');
-if(!playlist.length){el.innerHTML='<div style="text-align:center;padding:15px;color:var(--soft);font-size:.88rem">暂无曲目，快上传吧～🎵</div>';return}
+var el=$('music-playlist');
+if(!playlist.length){el.innerHTML='<div style="text-align:center;padding:12px;color:var(--soft);font-size:.85rem">暂无曲目🎵</div>';return}
 el.innerHTML='';
-playlist.forEach((s,i)=>{
-const d=document.createElement('div');d.className='music-item';d.id='mi-'+i;
-d.innerHTML='<span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1">🎵 '+s.name+'</span><span style="display:flex;gap:6px;flex-shrink:0"><button class="rab" onclick="playTrack('+i+')" title="播放">▶</button><button class="rab" onclick="delTrack('+i+')" title="删除">🗑️</button></span>';
-el.appendChild(d)})}
-
-function handleMusicUpload(e){
-const files=e.target.files;if(!files||!files.length)return;
-let loaded=0;const total=files.length;
-Array.from(files).forEach(f=>{
-if(f.size>5*1024*1024){alert('文件 "'+f.name+'" 超过5MB，跳过');loaded++;if(loaded===total){savePlaylist();renderPlaylist()};return}
-const reader=new FileReader();
-reader.onload=function(ev){
-playlist.push({name:f.name.replace(/\.[^.]+$/,''),data:ev.target.result});
-loaded++;if(loaded===total){savePlaylist();renderPlaylist()}
-};reader.onerror=function(){loaded++;alert('文件 "'+f.name+'" 读取失败')};
-reader.readAsDataURL(f)});
-e.target.value=''}
-
-function playTrack(i){
-if(!playlist[i])return;
-const a=$('forest-audio');a.src=playlist[i].data;a.play();
-$('np-cn').textContent=playlist[i].name;$('np-en').textContent='Now Playing';
-document.querySelectorAll('.music-item').forEach((el,j)=>el.classList.toggle('playing',j===i));
-a.onended=function(){if(i+1<playlist.length)playTrack(i+1)}}
-
-function delTrack(i){if(confirm('删除 "'+playlist[i].name+'"？')){playlist.splice(i,1);savePlaylist();renderPlaylist();$('np-cn').textContent='未选择曲目';$('np-en').textContent='No track selected';$('forest-audio').src=''}}
+for(var i=0;i<playlist.length;i++){
+var d=document.createElement('div');d.className='music-item';d.setAttribute('data-pi',i);
+d.innerHTML='<span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1">🎵 '+playlist[i].name+'</span><span style="display:flex;gap:4px;flex-shrink:0"><button class="rab" data-play="'+i+'">▶</button><button class="rab" data-pdel="'+i+'">🗑️</button></span>';
+el.appendChild(d)}
+el.querySelectorAll('[data-play]').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();playTrack(parseInt(this.getAttribute('data-play')))})});
+el.querySelectorAll('[data-pdel]').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();delTrack(parseInt(this.getAttribute('data-pdel')))})});
+}
+$('musicUpBtn').addEventListener('click',function(){$('music-upload').click()});
+$('music-upload').addEventListener('change',function(e){
+var files=e.target.files;if(!files||!files.length)return;
+var loaded=0,total=files.length;
+Array.from(files).forEach(function(f){
+if(f.size>5*1024*1024){alert('"'+f.name+'"超过5MB');loaded++;if(loaded===total){savePlaylist();renderPlaylist()};return}
+var reader=new FileReader();
+reader.onload=function(ev){playlist.push({name:f.name.replace(/\.[^.]+$/,''),data:ev.target.result});loaded++;if(loaded===total){savePlaylist();renderPlaylist()}};
+reader.onerror=function(){loaded++};
+reader.readAsDataURL(f)});e.target.value=''});
+function playTrack(i){if(!playlist[i])return;var a=$('forest-audio');a.src=playlist[i].data;a.play();$('np-cn').textContent=playlist[i].name;$('np-en').textContent='Now Playing';document.querySelectorAll('.music-item').forEach(function(el,j){if(j===i)el.classList.add('playing');else el.classList.remove('playing')});a.onended=function(){if(i+1<playlist.length)playTrack(i+1)}}
+function delTrack(i){if(confirm('删除？')){playlist.splice(i,1);savePlaylist();renderPlaylist();$('np-cn').textContent='未选择曲目';$('np-en').textContent='No track selected';$('forest-audio').src=''}}
 renderPlaylist();
 
 // 捕捉小快闪
-let seekScore=0;
-function moveBear(){const area=$('seekArea');const bear=$('targetBear');const x=Math.random()*(area.offsetWidth-40);const y=Math.random()*(area.offsetHeight-40);bear.style.left=x+'px';bear.style.top=y+'px'}
-function catchBear(){seekScore++;$('seekScore').textContent=seekScore;moveBear()}
+var seekScore=0;
+function moveBear(){var area=$('seekArea');if(!area)return;var bear=$('targetBear');var x=Math.random()*(area.offsetWidth-40);var y=Math.random()*(area.offsetHeight-40);bear.style.left=x+'px';bear.style.top=y+'px'}
+$('targetBear').addEventListener('click',function(e){e.preventDefault();seekScore++;$('seekScore').textContent=seekScore;moveBear()});
+$('targetBear').addEventListener('touchstart',function(e){e.preventDefault();seekScore++;$('seekScore').textContent=seekScore;moveBear()},{passive:false});
 moveBear();setInterval(moveBear,1500);
 
 // 记忆翻牌
-let memC=[],memFl=[],memMa=[],memMv=0;
-function initMem(){const es=['🧸','🍯','🐾','🌸','⭐','🎀','🌙','🍪'];let dk=[...es,...es];dk.sort(()=>Math.random()-.5);memC=dk;memFl=[];memMa=Array(16).fill(false);memMv=0;renderMem()}
-function renderMem(){$('mem-g').innerHTML=memC.map((c,i)=>{const s=memFl.includes(i)||memMa[i];return'<div class="mc" style="'+(s?'background:#FFF8E1;border:2px solid var(--honey)':'background:#e8ddd0')+'" onclick="memCl('+i+')">'+(s?c:'?')+'</div>'}).join('');$('mem-r').textContent='翻牌次数: '+memMv+(memMa.every(m=>m)?' 🎉全部找到！':'')}
-function memCl(i){if(memFl.includes(i)||memMa[i]||memFl.length>=2)return;memFl.push(i);renderMem();if(memFl.length===2){memMv++;const[a,b]=memFl;if(memC[a]===memC[b]){memMa[a]=memMa[b]=true;memFl=[];renderMem()}else setTimeout(()=>{memFl=[];renderMem()},800)}}
-function resetMem(){initMem()}
+var memC=[],memFl=[],memMa=[],memMv=0;
+function initMem(){var es=['🧸','🍯','🐾','🌸','⭐','🎀','🌙','🍪'];var dk=es.concat(es);dk.sort(function(){return Math.random()-0.5});memC=dk;memFl=[];memMa=[];for(var i=0;i<16;i++)memMa.push(false);memMv=0;renderMem()}
+function renderMem(){
+var html='';
+for(var i=0;i<memC.length;i++){
+var s=memFl.indexOf(i)!==-1||memMa[i];
+html+='<div class="mc" data-mi="'+i+'" style="'+(s?'background:#FFF8E1;border:2px solid var(--honey)':'background:#e8ddd0')+'">'+(s?memC[i]:'?')+'</div>';
+}
+$('mem-g').innerHTML=html;
+var allDone=memMa.every(function(m){return m});
+$('mem-r').textContent='翻牌次数: '+memMv+(allDone?' 🎉全部找到！':'');
+$('mem-g').querySelectorAll('[data-mi]').forEach(function(card){card.addEventListener('click',function(){memCl(parseInt(this.getAttribute('data-mi')))})});
+}
+function memCl(i){if(memFl.indexOf(i)!==-1||memMa[i]||memFl.length>=2)return;memFl.push(i);renderMem();if(memFl.length===2){memMv++;var a=memFl[0],b=memFl[1];if(memC[a]===memC[b]){memMa[a]=memMa[b]=true;memFl=[];renderMem()}else setTimeout(function(){memFl=[];renderMem()},800)}}
+$('memBtn').addEventListener('click',initMem);
 initMem();
 
 // 小熊问答
-let qI=-1;
-function doQuiz(){qI=(qI+1)%LIB.quizzes.length;const q=LIB.quizzes[qI];$('quiz-q').innerHTML=q.q;$('quiz-o').innerHTML=q.opts.map((o,i)=>'<button class="gbtn" style="margin:4px;padding:8px 16px;font-size:.85rem" onclick="ansQ('+i+')">'+o+'</button>').join('')}
-function ansQ(i){const q=LIB.quizzes[qI];$('quiz-q').innerHTML=i===q.ans?'✅ 答对啦！🎉':'❌ 答错了～正确答案：'+q.opts[q.ans];$('quiz-o').innerHTML=''}
+var qI=-1;
+$('quizBtn').addEventListener('click',function(){qI=(qI+1)%LIB.quizzes.length;var q=LIB.quizzes[qI];$('quiz-q').innerHTML=q.q;var html='';for(var i=0;i<q.opts.length;i++){html+='<button class="gbtn" data-qi="'+i+'" style="margin:3px;padding:7px 14px;font-size:.83rem">'+q.opts[i]+'</button>'}$('quiz-o').innerHTML=html;$('quiz-o').querySelectorAll('[data-qi]').forEach(function(b){b.addEventListener('click',function(){ansQ(parseInt(this.getAttribute('data-qi')))})})});
+function ansQ(i){var q=LIB.quizzes[qI];$('quiz-q').innerHTML=i===q.ans?'✅ 答对啦！🎉':'❌ 答错了～正确答案：'+q.opts[q.ans];$('quiz-o').innerHTML=''}
 
-// ===== 小贝尔的一天 =====
-const bearSc={
-eat:{em:'🍯',cn:['小贝尔开心地舔着蜂蜜罐～','一整罐蜂蜜吃个精光！','小贝尔：再来一罐！','蜂蜜配面包，最爱早餐！','小贝尔偷偷藏了蜂蜜在枕头下。'],en:["Bear licks the honey pot~","The jar was finished!","Bear: One more jar!","Honey on bread — favorite!","Bear hid honey under the pillow."]},
-play:{em:'🎾',cn:['小贝尔追球摔了个屁墩~','小贝尔把球抛给你！','打累了趴着喘气。','学会了转圈接球！','我是最可爱的选手！'],en:["Bear tumbles chasing the ball!","Ball for you!","Tired and panting~","Learned spin catch!","Cutest player ever!"]},
-swim:{em:'🏊',cn:['扑通跳进水里！','甩了甩毛水珠到处飞！','水好凉快再泡一会儿！','发现了水底的贝壳！','优雅地划水像小鸭子。'],en:["Splash!","Water everywhere!","So refreshing!","Found a shell!","Swimming like a duckling~"]},
-sleep:{em:'💤',cn:['打了个大哈欠蜷成一团~','梦里在追蝴蝶呢。','抱着枕头轻轻打呼。','说梦话：蜂蜜...再来...','四脚朝天睡姿好可爱！'],en:["Yawns and curls up~","Chasing butterflies in dreams.","Snoring softly~","Sleep talking: Honey...","Belly up — so cute!"]},
-read:{em:'📖',cn:['翻开故事书看得入迷。','读完故事眼眶微红。','这本书讲的是勇敢的小熊！','在书里发现了干花书签。','指着插图咯咯笑。'],en:["Fascinated by the book.","Teary-eyed after reading.","About a brave bear!","Found a bookmark!","Giggling at illustrations."]},
+/* ===== 小贝尔的一天 ===== */
+var bearSc={
+eat:{em:'🍯',cn:['小贝尔开心地舔着蜂蜜罐～','一整罐蜂蜜吃个精光！','再来一罐！','蜂蜜配面包最爱！','偷偷藏了蜂蜜在枕头下。'],en:["Licks the honey pot~","Jar finished!","One more jar!","Honey on bread!","Hid honey under pillow."]},
+play:{em:'🎾',cn:['追球摔了个屁墩~','把球抛给你！','打累了趴着喘气。','学会了转圈接球！','我是最可爱的选手！'],en:["Tumbles chasing ball!","Ball for you!","Tired and panting~","Learned spin catch!","Cutest player ever!"]},
+swim:{em:'🏊',cn:['扑通跳进水里！','甩了甩毛水珠到处飞！','水好凉快再泡一会儿！','发现了水底的贝壳！','优雅地划水～'],en:["Splash!","Water everywhere!","So refreshing!","Found a shell!","Swimming gracefully~"]},
+sleep:{em:'💤',cn:['打了个大哈欠蜷成一团~','梦里在追蝴蝶呢。','抱着枕头轻轻打呼。','说梦话：蜂蜜...再来...','四脚朝天好可爱！'],en:["Yawns and curls up~","Chasing butterflies in dreams.","Snoring softly~","Sleep talking: Honey...","Belly up — so cute!"]},
+read:{em:'📖',cn:['翻开故事书看得入迷。','读完故事眼眶微红。','这本书讲的是勇敢的小熊！','发现了干花书签。','指着插图咯咯笑。'],en:["Fascinated by the book.","Teary-eyed after reading.","About a brave bear!","Found a bookmark!","Giggling at illustrations."]},
 music:{em:'🎵',cn:['闭上眼跟着旋律摇摆。','突然站起来跳舞！','耳朵竖了起来。','在哼自己编的歌～','这首歌让我想起森林。'],en:["Swaying to the music~","Starts dancing!","Ears perk up!","Humming a self-composed song~","Reminds me of the forest."]},
 cook:{em:'🍳',cn:['围上围裙搅拌蜂蜜蛋糕！','偷吃奶油被抓了。','叮！蛋糕出炉满屋甜香～','这是给你做的快尝！','厨师帽歪了也不在意。'],en:["Stirring honey cake!","Caught sneaking cream!","Ding! Cake ready!","Made for you!","Chef hat crooked~"]},
-game:{em:'🎮',cn:['拿起手柄一脸认真！','赢了一局跳起来！','输了撅嘴要再来。','这关太难了帮帮我！','通关了展示奖杯！'],en:["Playing seriously!","Won and jumping!","Lost — wants rematch.","Too hard! Help!","Beat the game!"]},
+game:{em:'🎮',cn:['拿起手柄一脸认真！','赢了一局跳起来！','输了撅嘴要再来。','这关太难了帮帮我！','通关了展示奖杯！'],en:["Playing seriously!","Won and jumping!","Lost—wants rematch.","Too hard! Help!","Beat the game!"]},
 explore:{em:'🌍',cn:['背上书包向森林走去...','发现了蜂蜜树！','带回一片漂亮落叶。','山洞里发现了壁画！','世界好大有你在不害怕。'],en:["Heading into the forest...","Found a honey tree!","Brought back a leaf.","Found cave paintings!","Not afraid with you."]},
-hug:{em:'🫂',cn:['小贝尔张开双臂要抱抱！','紧紧地抱住你不撒手。','小贝尔：抱抱补充能量！','蹭蹭你的脸好柔软。','小贝尔说你是最温暖的人。'],en:["Arms wide open for hugs!","Won't let go!","Hug recharge!","Nuzzling your face~","You're the warmest person."]},
-dance:{em:'💃',cn:['小贝尔跳起了熊步舞！','转圈圈转到头晕了~','邀请你一起跳舞！','跳得很开心虽然踩到自己脚。','小贝尔觉得自己是舞王！'],en:["Bear step dance!","Spinning dizzy~","Invites you to dance!","Happy but stepping on own feet.","Thinks it's the dance king!"]},
-fish:{em:'🎣',cn:['小贝尔拿着鱼竿耐心等待。','钓到了一条小鱼好开心！','鱼跑了...小贝尔不放弃。','在河边吹吹风也很惬意。','小贝尔：钓鱼是一种修行。'],en:["Waiting patiently with rod.","Caught a small fish!","Fish escaped... won't give up.","Enjoying the breeze.","Fishing is meditation."]}
+hug:{em:'🫂',cn:['张开双臂要抱抱！','紧紧地抱住你不撒手。','抱抱补充能量！','蹭蹭你的脸好柔软。','你是最温暖的人。'],en:["Arms wide open for hugs!","Won't let go!","Hug recharge!","Nuzzling your face~","You're the warmest person."]},
+dance:{em:'💃',cn:['跳起了熊步舞！','转圈圈转到头晕了~','邀请你一起跳舞！','跳得很开心虽然踩到自己脚。','觉得自己是舞王！'],en:["Bear step dance!","Spinning dizzy~","Invites you to dance!","Happy but clumsy.","Dance king!"]},
+fish:{em:'🎣',cn:['拿着鱼竿耐心等待。','钓到了一条小鱼好开心！','鱼跑了...不放弃。','在河边吹吹风也很惬意。','钓鱼是一种修行。'],en:["Waiting patiently.","Caught a small fish!","Fish escaped... won't give up.","Enjoying the breeze.","Fishing is meditation."]}
 };
 
-let pet={e:80,h:70,c:60};
-try{const saved=JSON.parse(localStorage.getItem('bl_pet'));if(saved&&typeof saved.e==='number'&&!isNaN(saved.e)){pet.e=saved.e;pet.h=saved.h;pet.c=saved.c}}catch(ex){}
-if(isNaN(pet.e))pet.e=80;if(isNaN(pet.h))pet.h=70;if(isNaN(pet.c))pet.c=60;
-let petTime=parseInt(localStorage.getItem('bl_pt'))||Date.now();
-(function(){const n=Date.now(),d=Math.floor((n-petTime)/60000);if(d>0){pet.e=Math.max(0,pet.e-d*0.5);pet.h=Math.max(0,pet.h-d*0.3);pet.c=Math.max(0,pet.c-d*0.2)}})();
-function savePet(){localStorage.setItem('bl_pet',JSON.stringify(pet));localStorage.setItem('bl_pt',Date.now().toString())}
-function upPet(){const e=Math.round(pet.e),h=Math.round(pet.h),c=Math.round(pet.c);$('eV').textContent=e;$('eB').style.width=e+'%';$('hV').textContent=h;$('hB').style.width=h+'%';$('cV').textContent=c;$('cB').style.width=c+'%'}
+var pet={e:80,h:70,c:60};
+try{var sv2=JSON.parse(localStorage.getItem('bl_pet2'));if(sv2&&typeof sv2.e==='number'){pet=sv2}}catch(ex){}
+function savePet(){localStorage.setItem('bl_pet2',JSON.stringify(pet))}
+function upPet(){var e=Math.round(pet.e),h=Math.round(pet.h),c=Math.round(pet.c);$('eV').textContent=e;$('eB').style.width=e+'%';$('hV').textContent=h;$('hB').style.width=h+'%';$('cV').textContent=c;$('cB').style.width=c+'%'}
 savePet();upPet();
-setInterval(()=>{pet.e=Math.max(0,pet.e-0.3);pet.h=Math.max(0,pet.h-0.2);pet.c=Math.max(0,pet.c-0.15);savePet();upPet()},15000);
+setInterval(function(){pet.e=Math.max(0,pet.e-0.3);pet.h=Math.max(0,pet.h-0.2);pet.c=Math.max(0,pet.c-0.15);savePet();upPet()},15000);
 
-function bearDo(type){
-const sc=bearSc[type];if(!sc)return;
-const i=Math.floor(Math.random()*sc.cn.length);
+$('bearActs').addEventListener('click',function(e){
+var btn=e.target.closest('[data-act]');if(!btn)return;
+var type=btn.getAttribute('data-act');
+var sc=bearSc[type];if(!sc)return;
+var i=Math.floor(Math.random()*sc.cn.length);
 $('bearAv').textContent=sc.em;
 $('bearSt').innerHTML='<div>'+sc.cn[i]+'</div><div class="se">'+sc.en[i]+'</div>';
 switch(type){
 case'eat':pet.e=Math.min(100,pet.e+18);pet.h=Math.min(100,pet.h+5);break;
 case'play':pet.h=Math.min(100,pet.h+15);pet.e=Math.max(0,pet.e-8);pet.c=Math.max(0,pet.c-5);break;
 case'swim':pet.c=Math.min(100,pet.c+25);pet.e=Math.max(0,pet.e-10);pet.h=Math.min(100,pet.h+5);break;
-case'sleep':pet.e=Math.min(100,pet.e+20);pet.h=Math.min(100,pet.h+10);pet.c=Math.max(0,pet.c-3);break;
+case'sleep':pet.e=Math.min(100,pet.e+20);pet.h=Math.min(100,pet.h+10);break;
 case'read':pet.h=Math.min(100,pet.h+12);pet.e=Math.max(0,pet.e-3);break;
 case'music':pet.h=Math.min(100,pet.h+15);break;
 case'cook':pet.e=Math.min(100,pet.e+10);pet.h=Math.min(100,pet.h+8);pet.c=Math.max(0,pet.c-5);break;
@@ -664,32 +651,49 @@ case'game':pet.h=Math.min(100,pet.h+18);pet.e=Math.max(0,pet.e-5);break;
 case'explore':pet.h=Math.min(100,pet.h+20);pet.e=Math.max(0,pet.e-15);pet.c=Math.max(0,pet.c-10);break;
 case'hug':pet.h=Math.min(100,pet.h+20);pet.e=Math.min(100,pet.e+5);break;
 case'dance':pet.h=Math.min(100,pet.h+18);pet.e=Math.max(0,pet.e-12);break;
-case'fish':pet.h=Math.min(100,pet.h+10);pet.e=Math.max(0,pet.e-5);pet.c=Math.max(0,pet.c-3);break}
-savePet();upPet();setTimeout(()=>{$('bearAv').textContent='🧸'},3000)}
+case'fish':pet.h=Math.min(100,pet.h+10);pet.e=Math.max(0,pet.e-5);break}
+savePet();upPet();setTimeout(function(){$('bearAv').textContent='🧸'},3000)});
 
-// ===== 社区 =====
-let posts=JSON.parse(localStorage.getItem('bl_posts')||'[]');
+/* ===== 社区 ===== */
+var posts=[];
+try{posts=JSON.parse(localStorage.getItem('bl_posts2')||'[]')}catch(e){posts=[]}
+
 function renderPosts(){
-const box=$('postsBox');
-if(!posts.length){box.innerHTML='<div style="text-align:center;color:var(--soft);padding:40px">还没有帖子，来发布第一条吧！🧸</div>';return}
-box.innerHTML=posts.map((p,i)=>{
-let rhtml='';
+var box=$('postsBox');
+if(!posts.length){box.innerHTML='<div style="text-align:center;color:var(--soft);padding:30px">还没有帖子，来发布第一条吧！🧸</div>';return}
+var html='';
+for(var i=0;i<posts.length;i++){
+var p=posts[i];
+var rhtml='';
 if(p.replies&&p.replies.length){
-rhtml='<div class="rpls">'+p.replies.map((r,j)=>'<div class="rpl"><div class="rav">🐾</div><div class="rbd"><div class="rn">'+r.name+'</div><div class="rt">'+r.text+'</div><div class="racts"><button class="rab '+(r.liked?'liked':'')+'" onclick="likeR('+i+','+j+')">❤ '+(r.likes||0)+'</button><button class="rab" onclick="delR('+i+','+j+')">🗑️</button></div></div></div>').join('')+'</div>'}
-return '<div class="pc"><div class="phd"><div class="pav">🧸</div><div><div class="pnm">'+p.name+'</div><div class="ptm">'+p.time+'</div></div></div><div class="pbd">'+p.text+'</div><div class="pft"><button class="pfb '+(p.liked?'liked':'')+'" onclick="likeP('+i+')"><i class="fas fa-heart"></i> '+(p.likes||0)+'</button><button class="pfb" onclick="toggleR('+i+')"><i class="fas fa-comment"></i> 评论</button><button class="pfb" onclick="delP('+i+')"><i class="fas fa-trash"></i></button></div>'+rhtml+'<div class="rinp" id="rinp'+i+'"><input type="text" id="rn'+i+'" placeholder="昵称"><input type="text" id="rt'+i+'" placeholder="写评论..." style="flex:2"><button onclick="addR('+i+')">发送</button></div></div>'}).join('')}
-
-function pubPost(){const name=$('postName').value.trim()||'匿名小熊';const txt=$('postIn').value.trim();if(!txt){alert('请输入内容');return}posts.unshift({name,text:txt,time:new Date().toLocaleDateString(),likes:0,liked:false,replies:[]});localStorage.setItem('bl_posts',JSON.stringify(posts));$('postIn').value='';renderPosts()}
-function likeP(i){posts[i].liked=!posts[i].liked;posts[i].likes=(posts[i].likes||0)+(posts[i].liked?1:-1);localStorage.setItem('bl_posts',JSON.stringify(posts));renderPosts()}
-function delP(i){if(confirm('删除此帖？')){posts.splice(i,1);localStorage.setItem('bl_posts',JSON.stringify(posts));renderPosts()}}
-function toggleR(i){const el=$('rinp'+i);el.classList.toggle('show')}
-function addR(i){const name=$('rn'+i).value.trim()||'匿名小熊';const text=$('rt'+i).value.trim();if(!text)return;if(!posts[i].replies)posts[i].replies=[];posts[i].replies.push({name,text,likes:0,liked:false});localStorage.setItem('bl_posts',JSON.stringify(posts));renderPosts()}
-function likeR(i,j){posts[i].replies[j].liked=!posts[i].replies[j].liked;posts[i].replies[j].likes=(posts[i].replies[j].likes||0)+(posts[i].replies[j].liked?1:-1);localStorage.setItem('bl_posts',JSON.stringify(posts));renderPosts()}
-function delR(i,j){if(confirm('删除此评论？')){posts[i].replies.splice(j,1);localStorage.setItem('bl_posts',JSON.stringify(posts));renderPosts()}}
+rhtml='<div class="rpls">';
+for(var j=0;j<p.replies.length;j++){
+var r=p.replies[j];
+rhtml+='<div class="rpl"><div class="rav">🐾</div><div class="rbd"><div class="rn">'+r.name+'</div><div class="rt">'+r.text+'</div><div class="racts"><button class="rab '+(r.liked?'liked':'')+'" data-rl="'+i+'-'+j+'">❤ '+(r.likes||0)+'</button><button class="rab" data-rd="'+i+'-'+j+'">🗑️</button></div></div></div>';
+}
+rhtml+='</div>';
+}
+html+='<div class="pc"><div class="phd"><div class="pav">🧸</div><div><div class="pnm">'+p.name+'</div><div class="ptm">'+p.time+'</div></div></div><div class="pbd">'+p.text+'</div><div class="pft"><button class="pfb '+(p.liked?'liked':'')+'" data-pl="'+i+'"><i class="fas fa-heart"></i> '+(p.likes||0)+'</button><button class="pfb" data-pr="'+i+'"><i class="fas fa-comment"></i> 评论</button><button class="pfb" data-pd="'+i+'"><i class="fas fa-trash"></i></button></div>'+rhtml+'<div class="rinp" id="rinp'+i+'"><input type="text" id="rn'+i+'" placeholder="昵称"><input type="text" id="rt'+i+'" placeholder="写评论..." style="flex:2"><button data-rs="'+i+'">发送</button></div></div>';
+}
+box.innerHTML=html;
+// 绑定
+box.querySelectorAll('[data-pl]').forEach(function(b){b.addEventListener('click',function(){var i=parseInt(this.getAttribute('data-pl'));posts[i].liked=!posts[i].liked;posts[i].likes=(posts[i].likes||0)+(posts[i].liked?1:-1);savePosts();renderPosts()})});
+box.querySelectorAll('[data-pd]').forEach(function(b){b.addEventListener('click',function(){var i=parseInt(this.getAttribute('data-pd'));if(confirm('删除此帖？')){posts.splice(i,1);savePosts();renderPosts()}})});
+box.querySelectorAll('[data-pr]').forEach(function(b){b.addEventListener('click',function(){var i=parseInt(this.getAttribute('data-pr'));var el=$('rinp'+i);el.classList.toggle('show')})});
+box.querySelectorAll('[data-rs]').forEach(function(b){b.addEventListener('click',function(){var i=parseInt(this.getAttribute('data-rs'));var name=$('rn'+i).value.trim()||'匿名小熊';var text=$('rt'+i).value.trim();if(!text)return;if(!posts[i].replies)posts[i].replies=[];posts[i].replies.push({name:name,text:text,likes:0,liked:false});savePosts();renderPosts()})});
+box.querySelectorAll('[data-rl]').forEach(function(b){b.addEventListener('click',function(){var p=this.getAttribute('data-rl').split('-');var i=parseInt(p[0]),j=parseInt(p[1]);posts[i].replies[j].liked=!posts[i].replies[j].liked;posts[i].replies[j].likes=(posts[i].replies[j].likes||0)+(posts[i].replies[j].liked?1:-1);savePosts();renderPosts()})});
+box.querySelectorAll('[data-rd]').forEach(function(b){b.addEventListener('click',function(){var p=this.getAttribute('data-rd').split('-');var i=parseInt(p[0]),j=parseInt(p[1]);if(confirm('删除评论？')){posts[i].replies.splice(j,1);savePosts();renderPosts()}})});
+}
+function savePosts(){localStorage.setItem('bl_posts2',JSON.stringify(posts))}
+$('pubBtn').addEventListener('click',function(){var name=$('postName').value.trim()||'匿名小熊';var txt=$('postIn').value.trim();if(!txt){alert('请输入内容');return}posts.unshift({name:name,text:txt,time:new Date().toLocaleDateString(),likes:0,liked:false,replies:[]});savePosts();$('postIn').value='';renderPosts()});
 renderPosts();
 
-// ===== 头像 =====
-(function(){const saved=localStorage.getItem('bl_avatar');if(saved)$('aboutAv').src=saved})();
-function upAvatar(inp){if(inp.files&&inp.files[0]){const r=new FileReader();r.onload=e=>{$('aboutAv').src=e.target.result;localStorage.setItem('bl_avatar',e.target.result)};r.readAsDataURL(inp.files[0])}}
+/* ===== 头像 ===== */
+(function(){var saved=localStorage.getItem('bl_avatar2');if(saved)$('aboutAv').src=saved})();
+$('avatarDiv').addEventListener('click',function(){$('avatarUp').click()});
+$('avatarUp').addEventListener('change',function(){if(this.files&&this.files[0]){var r=new FileReader();r.onload=function(e){$('aboutAv').src=e.target.result;localStorage.setItem('bl_avatar2',e.target.result)};r.readAsDataURL(this.files[0])}});
+
+})();
 </script>
 </body>
 </html>
